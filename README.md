@@ -1,6 +1,6 @@
 # Zelvyn API — public handbook
 
-[![API](https://img.shields.io/badge/API-live-2ea44f)](https://api-zelvyn.devs.surf)
+[![API](https://i.postimg.cc/rFQymy4T/zelvyn.png)](https://api-zelvyn.devs.surf)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-3.1-blue)](https://api-zelvyn.devs.surf/openapi.json)
 
 The **Zelvyn API** is a stateless calculation and analytics platform for mathematics, statistics and business metrics. Every request is a JSON object; every response uses one envelope with a `meta.requestId` correlation id. Calculations are never persisted.
