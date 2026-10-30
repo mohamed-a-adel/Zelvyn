@@ -4,11 +4,15 @@ Complete, copy-pasteable Go requests for all 43 public Zelvyn API operations.
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -74,13 +78,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	req, _ := http.NewRequest("GET", "https://api-zelvyn.devs.surf/api/v1/health", nil)
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -110,14 +114,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{3, 1, 4, 1, 5}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/statistics/max", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -147,14 +151,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{10, 20, 30}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/statistics/mean", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -184,14 +188,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{1, 3, 2, 5, 4}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/statistics/median", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -221,14 +225,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{3, 1, 4, 1, 5}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/statistics/min", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -258,14 +262,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{1, 2, 3, 4}, "percentile": 75})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/statistics/percentile", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -295,14 +299,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{3, 1, 4, 1, 5}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/statistics/range", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -332,14 +336,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{2, 4, 4, 4, 5, 5, 7, 9}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/statistics/standard-deviation", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -369,14 +373,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{10, 20, 30}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/statistics/sum", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -406,14 +410,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{2, 4, 4, 4, 5, 5, 7, 9}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/statistics/variance", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -443,14 +447,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{0.1, 0.2, 0.3}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/add", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -480,14 +484,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"n": 52, "r": 5})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/combinations", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -517,14 +521,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{100, 4, 5}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/divide", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -554,14 +558,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"n": 5})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/factorial", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -591,14 +595,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"a": 12, "b": 18})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/gcd", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -628,14 +632,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"a": 4, "b": 6})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/lcm", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -665,14 +669,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"value": 1})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/ln", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -702,14 +706,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"value": 1000})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/log", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -739,14 +743,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{2, 3, 4}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/multiply", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -776,14 +780,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"value": 27, "degree": 3})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/nth-root", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -813,14 +817,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"percentage": 15, "value": 240})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/percent-of", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -850,14 +854,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"from": 80, "to": 100})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/percentage-change", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -887,14 +891,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"n": 5, "r": 2})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/permutations", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -924,14 +928,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"base": 2, "exponent": 10})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/power", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -961,14 +965,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"value": 144})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/sqrt", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -998,14 +1002,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"values": []int{10, 3, 4}})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/math/subtract", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1035,14 +1039,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"revenue": 10000, "orders": 200})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/aov", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1072,14 +1076,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"fixedCosts": 1000, "price": 20, "variableCost": 12})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/break-even", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1109,14 +1113,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"cost": 5000, "customers": 50})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/cac", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1146,14 +1150,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"beginValue": 100, "endValue": 121, "periods": 2})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/cagr", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1183,14 +1187,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"churned": 100, "starting": 1000})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/churn-rate", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1220,14 +1224,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"averageOrderValue": 50, "purchasesPerPeriod": 12, "lifespanPeriods": 3})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/clv", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1257,14 +1261,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"conversions": 50, "sessions": 1000})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/conversion-rate", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1294,14 +1298,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"cost": 500, "conversions": 25})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/cpa", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1331,14 +1335,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"cost": 250, "clicks": 100})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/cpc", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1368,14 +1372,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"cost": 500, "impressions": 100000})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/cpm", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1405,14 +1409,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"clicks": 100, "impressions": 10000})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/ctr", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1442,14 +1446,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"price": 120, "cost": 100})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/markup", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1479,14 +1483,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"revenue": 1000, "costs": 600})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/profit", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1516,14 +1520,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"revenue": 1000, "costs": 600})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/profit-margin", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1553,14 +1557,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"retained": 900, "starting": 1000})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/retention-rate", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1590,14 +1594,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"revenue": 4000, "adSpend": 1000})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/roas", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -1627,14 +1631,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
 	body, _ := json.Marshal(map[string]any{"profit": 250, "investment": 1000})
 	req, _ := http.NewRequest("POST", "https://api-zelvyn.devs.surf/api/v1/business/roi", bytes.NewReader(body))
-	req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 	req.Header.Set("Content-Type", "application/json")
+	// No API key needed. Optional: import "os" and add this line for a higher limit:
+	// req.Header.Set("Authorization", "Bearer "+os.Getenv("ZELVYN_API_KEY"))
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {

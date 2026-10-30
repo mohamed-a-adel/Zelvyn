@@ -47,7 +47,7 @@
     "summary": "Maximum value",
     "description": "Returns the largest value in the dataset. Accepts 1–10,000 finite numbers.",
     "tag": "Statistics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         3,
@@ -109,7 +109,7 @@
     "summary": "Arithmetic mean",
     "description": "Returns the arithmetic mean of `values` (Σ xᵢ / n). Uses Neumaier compensated summation, so datasets with widely varying magnitudes keep low-order digits. Accepts 1–10,000 finite numbers.",
     "tag": "Statistics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         10,
@@ -169,7 +169,7 @@
     "summary": "Median",
     "description": "Returns the middle value of the sorted dataset, or the mean of the two middle values when the count is even. Accepts 1–10,000 finite numbers.",
     "tag": "Statistics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         1,
@@ -231,7 +231,7 @@
     "summary": "Minimum value",
     "description": "Returns the smallest value in the dataset. Accepts 1–10,000 finite numbers.",
     "tag": "Statistics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         3,
@@ -293,7 +293,7 @@
     "summary": "Percentile (linear interpolation)",
     "description": "Returns the `percentile`-th percentile of `values` using linear interpolation between closest ranks (the NumPy/`PERCENTILE` inclusive definition). `percentile` is a finite number in [0, 100]; 0 is the minimum and 100 is the maximum. Accepts 1–10,000 finite numbers.",
     "tag": "Statistics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         1,
@@ -361,7 +361,7 @@
     "summary": "Range (max − min)",
     "description": "Returns `max − min`, the spread of the dataset. Non-negative by construction. Accepts 1–10,000 finite numbers.",
     "tag": "Statistics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         3,
@@ -423,7 +423,7 @@
     "summary": "Population standard deviation",
     "description": "Returns the population standard deviation σ, the square root of the population variance (divided by n). Non-negative; accepts 1–10,000 finite numbers.",
     "tag": "Statistics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         2,
@@ -488,7 +488,7 @@
     "summary": "Sum of a dataset",
     "description": "Returns the sum of `values` (Σ xᵢ), decimal-exact. Equivalent to `/api/v1/math/add` for numeric arrays. Accepts 1–10,000 finite numbers.",
     "tag": "Statistics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         10,
@@ -548,7 +548,7 @@
     "summary": "Population variance",
     "description": "Returns the population variance σ² = (Σ (xᵢ − μ)²) / n (divided by n, not n−1). Decimal-exact two-pass computation. Non-negative; accepts 1–10,000 finite numbers.",
     "tag": "Statistics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         2,
@@ -613,7 +613,7 @@
     "summary": "Add numbers",
     "description": "Returns the sum of `values` (Σ valuesᵢ). Decimal-exact internally (40 significant digits), so `[0.1, 0.2]` returns `0.3`. Accepts 1–10,000 finite numbers; negatives and zero are allowed.",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         0.1,
@@ -673,7 +673,7 @@
     "summary": "Combinations C(n, r)",
     "description": "Returns the number of unordered selections `C(n, r) = n! / (r! (n − r)!)`. `n` and `r` are integers from 0 to 1,000 and the contract requires `r ≤ n`. Exact integer results beyond `Number.MAX_SAFE_INTEGER` are returned as decimal strings and are never rounded.",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "n": 52,
       "r": 5
@@ -733,7 +733,7 @@
     "summary": "Divide numbers (left to right)",
     "description": "Returns `values₀ ÷ values₁ ÷ values₂ ÷ …`, evaluated strictly left to right. Requires at least 2 finite values. A zero divisor is a `DIVISION_BY_ZERO` domain error (HTTP 422), not a validation error.",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         100,
@@ -793,7 +793,7 @@
     "summary": "Factorial",
     "description": "Returns `n!` for an integer n from 0 to 1,000 (`0! = 1`). Exact integer results beyond `Number.MAX_SAFE_INTEGER` are returned as decimal strings and are never rounded.",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "n": 5
     },
@@ -846,7 +846,7 @@
     "summary": "Greatest common divisor",
     "description": "Returns the greatest common divisor of two integers, sign-independently. `gcd(0, b) = |b|`; `gcd(0, 0)` yields `UNDEFINED_RESULT` (HTTP 422). Both inputs must be safe integers.",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "a": 12,
       "b": 18
@@ -906,7 +906,7 @@
     "summary": "Least common multiple",
     "description": "Returns the least common multiple of two integers, sign-independently. `lcm(0, b) = 0`; `lcm(0, 0)` yields `UNDEFINED_RESULT` (HTTP 422). Both inputs must be safe integers.",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "a": 4,
       "b": 6
@@ -966,7 +966,7 @@
     "summary": "Natural logarithm",
     "description": "Returns the natural logarithm (base e). `value ≤ 0` yields `UNDEFINED_RESULT` (HTTP 422).",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "value": 1
     },
@@ -1017,7 +1017,7 @@
     "summary": "Logarithm to a base (default 10)",
     "description": "Returns the logarithm of `value` to `base`. `base` is optional and defaults to 10. `value ≤ 0`, `base ≤ 0`, and `base = 1` yield `UNDEFINED_RESULT` (HTTP 422).",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "value": 1000
     },
@@ -1071,7 +1071,7 @@
     "summary": "Multiply numbers",
     "description": "Returns the product of `values` (Π valuesᵢ). Decimal-exact internally. Accepts 1–10,000 finite numbers.",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         2,
@@ -1131,7 +1131,7 @@
     "summary": "N-th root",
     "description": "Returns the principal real `degree`-th root of `value`. `degree` is an integer from 1 to 10,000. An even root of a negative value yields `UNDEFINED_RESULT` (422); odd roots of negatives return the negative real root.",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "value": 27,
       "degree": 3
@@ -1189,7 +1189,7 @@
     "summary": "Percent of a value",
     "description": "Returns `(percentage / 100) × value`. Both inputs are finite numbers (negatives allowed).",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "percentage": 15,
       "value": 240
@@ -1245,7 +1245,7 @@
     "summary": "Percentage change between two values",
     "description": "Returns `((to − from) / from) × 100` as percent points (so `25` means +25%). The signed `from` value is the denominator. `from = 0` has no defined relative change and yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "from": 80,
       "to": 100
@@ -1301,7 +1301,7 @@
     "summary": "Permutations P(n, r)",
     "description": "Returns the number of ordered selections `P(n, r) = n! / (n − r)!`. `n` and `r` are integers from 0 to 1,000 and the contract requires `r ≤ n`. Exact integer results beyond `Number.MAX_SAFE_INTEGER` are returned as decimal strings and are never rounded.",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "n": 5,
       "r": 2
@@ -1361,7 +1361,7 @@
     "summary": "Raise a base to an exponent",
     "description": "Returns `base^exponent`. `0^0 = 1` and `0^positive = 0` by convention; `0^negative` yields `DIVISION_BY_ZERO` (422); a negative base with a non-integer exponent yields `UNDEFINED_RESULT` (422); overflow/underflow yield `UNDEFINED_RESULT` (422).",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "base": 2,
       "exponent": 10
@@ -1417,7 +1417,7 @@
     "summary": "Square root",
     "description": "Returns the principal (non-negative) square root. A negative input has no real square root and yields `UNDEFINED_RESULT` (HTTP 422).",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "value": 144
     },
@@ -1468,7 +1468,7 @@
     "summary": "Subtract numbers (left to right)",
     "description": "Returns `values₀ − values₁ − values₂ − …`, evaluated strictly left to right (the array is the expression). Requires at least two finite values.",
     "tag": "Math",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "values": [
         10,
@@ -1528,7 +1528,7 @@
     "summary": "Average order value AOV",
     "description": "Returns `revenue / orders`. `revenue` is signed; `orders` is non-negative. `orders = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "revenue": 10000,
       "orders": 200
@@ -1585,7 +1585,7 @@
     "summary": "Break-even volume (units)",
     "description": "Returns `fixedCosts / (price − variableCost)`, the number of units needed to cover fixed costs (may be fractional). A contribution of `price − variableCost ≤ 0` makes break-even unreachable and yields `UNDEFINED_RESULT` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "fixedCosts": 1000,
       "price": 20,
@@ -1646,7 +1646,7 @@
     "summary": "Customer acquisition cost CAC",
     "description": "Returns `cost / customers`. `customers = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "cost": 5000,
       "customers": 50
@@ -1704,7 +1704,7 @@
     "summary": "Compound annual growth rate CAGR (percent)",
     "description": "Returns `((endValue / beginValue)^(1 / periods) − 1) × 100` as percent points. `periods` must be greater than 0. `beginValue ≤ 0` or `endValue < 0` yields `UNDEFINED_RESULT` (HTTP 422); overflow yields `UNDEFINED_RESULT`; a total loss returns `−100`.",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "beginValue": 100,
       "endValue": 121,
@@ -1766,7 +1766,7 @@
     "summary": "Churn rate (percent)",
     "description": "Returns `churned / starting × 100` as percent points. Counts are non-negative. `starting = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "churned": 100,
       "starting": 1000
@@ -1824,7 +1824,7 @@
     "summary": "Customer lifetime value CLV",
     "description": "Returns `averageOrderValue × purchasesPerPeriod × lifespanPeriods`. No currency is assumed. Exact integer results beyond `Number.MAX_SAFE_INTEGER` are returned as decimal strings and are never rounded.",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "averageOrderValue": 50,
       "purchasesPerPeriod": 12,
@@ -1887,7 +1887,7 @@
     "summary": "Conversion rate (percent)",
     "description": "Returns `conversions / sessions × 100` as percent points. Counts are non-negative. `sessions = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "conversions": 50,
       "sessions": 1000
@@ -1945,7 +1945,7 @@
     "summary": "Cost per acquisition CPA",
     "description": "Returns `cost / conversions`. `conversions = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "cost": 500,
       "conversions": 25
@@ -2003,7 +2003,7 @@
     "summary": "Cost per click CPC",
     "description": "Returns `cost / clicks`. `cost` and `clicks` are non-negative. `clicks = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "cost": 250,
       "clicks": 100
@@ -2061,7 +2061,7 @@
     "summary": "Cost per mille CPM",
     "description": "Returns `cost / impressions × 1000` (cost per 1,000 impressions). `impressions = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "cost": 500,
       "impressions": 100000
@@ -2119,7 +2119,7 @@
     "summary": "Click-through rate CTR (percent)",
     "description": "Returns `clicks / impressions × 100` as percent points. Counts are non-negative. `impressions = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "clicks": 100,
       "impressions": 10000
@@ -2177,7 +2177,7 @@
     "summary": "Markup (percent)",
     "description": "Returns `(price − cost) / cost × 100` as percent points. `cost = 0` yields `DIVISION_BY_ZERO` (HTTP 422). Distinct from margin, which is based on revenue/price.",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "price": 120,
       "cost": 100
@@ -2233,7 +2233,7 @@
     "summary": "Profit",
     "description": "Returns `revenue − costs`. Monetary inputs are signed (negative results are meaningful losses).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "revenue": 1000,
       "costs": 600
@@ -2289,7 +2289,7 @@
     "summary": "Profit margin (percent)",
     "description": "Returns `(revenue − costs) / revenue × 100` as percent points (`40` means 40%). `revenue = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "revenue": 1000,
       "costs": 600
@@ -2345,7 +2345,7 @@
     "summary": "Retention rate (percent)",
     "description": "Returns `retained / starting × 100` as percent points. Counts are non-negative. `starting = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "retained": 900,
       "starting": 1000
@@ -2403,7 +2403,7 @@
     "summary": "Return on ad spend ROAS (ratio)",
     "description": "Returns `revenue / adSpend` as a plain ratio (`4` means 4×). `adSpend = 0` yields `DIVISION_BY_ZERO` (HTTP 422). Unlike ROI, this is not multiplied by 100.",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "revenue": 4000,
       "adSpend": 1000
@@ -2460,7 +2460,7 @@
     "summary": "Return on investment ROI (percent)",
     "description": "Returns `profit / investment × 100` as percent points, where `profit` is the net gain. `investment = 0` yields `DIVISION_BY_ZERO` (HTTP 422). Distinct from ROAS, which is a revenue ratio.",
     "tag": "Business Analytics",
-    "authentication": "api-key",
+    "authentication": "public",
     "requestExample": {
       "profit": 250,
       "investment": 1000

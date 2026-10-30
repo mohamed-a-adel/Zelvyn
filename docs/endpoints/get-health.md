@@ -6,7 +6,7 @@ Stateless liveness/readiness probe: no database, dependencies, or external calls
 
 ## Authentication
 
-This endpoint is public. No API key is required. See [authentication](../authentication.md).
+No API key is required. If you have a key, add `Authorization: Bearer $ZELVYN_API_KEY` (or `x-api-key`) to use your plan's higher rate limit and quota. See [authentication](../authentication.md).
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -23,9 +23,10 @@ Base URL: `https://api-zelvyn.devs.surf`
 ### cURL
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X GET 'https://api-zelvyn.devs.surf/api/v1/health' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json'
 ```
 

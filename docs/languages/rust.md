@@ -4,11 +4,15 @@ Complete, copy-pasteable Rust requests for all 43 public Zelvyn API operations.
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -67,14 +71,14 @@ Base URL: `https://api-zelvyn.devs.surf`
 `GET /api/v1/health`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .get("https://api-zelvyn.devs.surf/api/v1/health")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .send()?
         .text()?;
 
@@ -92,14 +96,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/statistics/max`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/statistics/max")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[3,1,4,1,5]}"#)
         .send()?
@@ -119,14 +123,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/statistics/mean`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/statistics/mean")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[10,20,30]}"#)
         .send()?
@@ -146,14 +150,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/statistics/median`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/statistics/median")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[1,3,2,5,4]}"#)
         .send()?
@@ -173,14 +177,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/statistics/min`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/statistics/min")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[3,1,4,1,5]}"#)
         .send()?
@@ -200,14 +204,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/statistics/percentile`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/statistics/percentile")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[1,2,3,4],"percentile":75}"#)
         .send()?
@@ -227,14 +231,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/statistics/range`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/statistics/range")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[3,1,4,1,5]}"#)
         .send()?
@@ -254,14 +258,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/statistics/standard-deviation`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/statistics/standard-deviation")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[2,4,4,4,5,5,7,9]}"#)
         .send()?
@@ -281,14 +285,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/statistics/sum`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/statistics/sum")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[10,20,30]}"#)
         .send()?
@@ -308,14 +312,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/statistics/variance`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/statistics/variance")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[2,4,4,4,5,5,7,9]}"#)
         .send()?
@@ -335,14 +339,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/add`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/add")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[0.1,0.2,0.3]}"#)
         .send()?
@@ -362,14 +366,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/combinations`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/combinations")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"n":52,"r":5}"#)
         .send()?
@@ -389,14 +393,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/divide`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/divide")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[100,4,5]}"#)
         .send()?
@@ -416,14 +420,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/factorial`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/factorial")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"n":5}"#)
         .send()?
@@ -443,14 +447,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/gcd`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/gcd")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"a":12,"b":18}"#)
         .send()?
@@ -470,14 +474,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/lcm`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/lcm")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"a":4,"b":6}"#)
         .send()?
@@ -497,14 +501,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/ln`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/ln")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"value":1}"#)
         .send()?
@@ -524,14 +528,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/log`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/log")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"value":1000}"#)
         .send()?
@@ -551,14 +555,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/multiply`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/multiply")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[2,3,4]}"#)
         .send()?
@@ -578,14 +582,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/nth-root`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/nth-root")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"value":27,"degree":3}"#)
         .send()?
@@ -605,14 +609,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/percent-of`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/percent-of")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"percentage":15,"value":240}"#)
         .send()?
@@ -632,14 +636,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/percentage-change`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/percentage-change")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"from":80,"to":100}"#)
         .send()?
@@ -659,14 +663,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/permutations`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/permutations")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"n":5,"r":2}"#)
         .send()?
@@ -686,14 +690,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/power`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/power")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"base":2,"exponent":10}"#)
         .send()?
@@ -713,14 +717,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/sqrt`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/sqrt")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"value":144}"#)
         .send()?
@@ -740,14 +744,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/math/subtract`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/math/subtract")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"values":[10,3,4]}"#)
         .send()?
@@ -767,14 +771,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/aov`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/aov")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"revenue":10000,"orders":200}"#)
         .send()?
@@ -794,14 +798,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/break-even`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/break-even")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"fixedCosts":1000,"price":20,"variableCost":12}"#)
         .send()?
@@ -821,14 +825,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/cac`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/cac")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"cost":5000,"customers":50}"#)
         .send()?
@@ -848,14 +852,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/cagr`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/cagr")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"beginValue":100,"endValue":121,"periods":2}"#)
         .send()?
@@ -875,14 +879,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/churn-rate`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/churn-rate")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"churned":100,"starting":1000}"#)
         .send()?
@@ -902,14 +906,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/clv`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/clv")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"averageOrderValue":50,"purchasesPerPeriod":12,"lifespanPeriods":3}"#)
         .send()?
@@ -929,14 +933,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/conversion-rate`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/conversion-rate")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"conversions":50,"sessions":1000}"#)
         .send()?
@@ -956,14 +960,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/cpa`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/cpa")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"cost":500,"conversions":25}"#)
         .send()?
@@ -983,14 +987,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/cpc`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/cpc")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"cost":250,"clicks":100}"#)
         .send()?
@@ -1010,14 +1014,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/cpm`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/cpm")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"cost":500,"impressions":100000}"#)
         .send()?
@@ -1037,14 +1041,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/ctr`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/ctr")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"clicks":100,"impressions":10000}"#)
         .send()?
@@ -1064,14 +1068,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/markup`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/markup")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"price":120,"cost":100}"#)
         .send()?
@@ -1091,14 +1095,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/profit`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/profit")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"revenue":1000,"costs":600}"#)
         .send()?
@@ -1118,14 +1122,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/profit-margin`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/profit-margin")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"revenue":1000,"costs":600}"#)
         .send()?
@@ -1145,14 +1149,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/retention-rate`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/retention-rate")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"retained":900,"starting":1000}"#)
         .send()?
@@ -1172,14 +1176,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/roas`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/roas")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"revenue":4000,"adSpend":1000}"#)
         .send()?
@@ -1199,14 +1203,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 `POST /api/v1/business/roi`
 
 ```rust
-use std::env;
 use reqwest::blocking::Client;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
+    // No API key needed. Optional: add `use std::env;` and this header for a higher limit:
+    // .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
     let response = client
         .post("https://api-zelvyn.devs.surf/api/v1/business/roi")
-        .header("Authorization", format!("Bearer {}", env::var("ZELVYN_API_KEY")?))
         .header("Content-Type", "application/json")
         .body(r#"{"profit":250,"investment":1000}"#)
         .send()?

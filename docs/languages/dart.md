@@ -4,11 +4,15 @@ Complete, copy-pasteable Dart requests for all 43 public Zelvyn API operations.
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -68,15 +72,16 @@ Base URL: `https://api-zelvyn.devs.surf`
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.get(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/health'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
   );
   print(response.body);
@@ -93,15 +98,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/statistics/max'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[3,1,4,1,5]}),
   );
@@ -119,15 +125,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/statistics/mean'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[10,20,30]}),
   );
@@ -145,15 +152,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/statistics/median'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[1,3,2,5,4]}),
   );
@@ -171,15 +179,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/statistics/min'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[3,1,4,1,5]}),
   );
@@ -197,15 +206,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/statistics/percentile'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[1,2,3,4],"percentile":75}),
   );
@@ -223,15 +233,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/statistics/range'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[3,1,4,1,5]}),
   );
@@ -249,15 +260,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/statistics/standard-deviation'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[2,4,4,4,5,5,7,9]}),
   );
@@ -275,15 +287,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/statistics/sum'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[10,20,30]}),
   );
@@ -301,15 +314,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/statistics/variance'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[2,4,4,4,5,5,7,9]}),
   );
@@ -327,15 +341,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/add'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[0.1,0.2,0.3]}),
   );
@@ -353,15 +368,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/combinations'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"n":52,"r":5}),
   );
@@ -379,15 +395,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/divide'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[100,4,5]}),
   );
@@ -405,15 +422,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/factorial'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"n":5}),
   );
@@ -431,15 +449,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/gcd'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"a":12,"b":18}),
   );
@@ -457,15 +476,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/lcm'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"a":4,"b":6}),
   );
@@ -483,15 +503,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/ln'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"value":1}),
   );
@@ -509,15 +530,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/log'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"value":1000}),
   );
@@ -535,15 +557,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/multiply'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[2,3,4]}),
   );
@@ -561,15 +584,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/nth-root'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"value":27,"degree":3}),
   );
@@ -587,15 +611,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/percent-of'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"percentage":15,"value":240}),
   );
@@ -613,15 +638,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/percentage-change'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"from":80,"to":100}),
   );
@@ -639,15 +665,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/permutations'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"n":5,"r":2}),
   );
@@ -665,15 +692,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/power'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"base":2,"exponent":10}),
   );
@@ -691,15 +719,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/sqrt'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"value":144}),
   );
@@ -717,15 +746,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/math/subtract'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"values":[10,3,4]}),
   );
@@ -743,15 +773,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/aov'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"revenue":10000,"orders":200}),
   );
@@ -769,15 +800,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/break-even'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"fixedCosts":1000,"price":20,"variableCost":12}),
   );
@@ -795,15 +827,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/cac'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"cost":5000,"customers":50}),
   );
@@ -821,15 +854,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/cagr'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"beginValue":100,"endValue":121,"periods":2}),
   );
@@ -847,15 +881,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/churn-rate'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"churned":100,"starting":1000}),
   );
@@ -873,15 +908,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/clv'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"averageOrderValue":50,"purchasesPerPeriod":12,"lifespanPeriods":3}),
   );
@@ -899,15 +935,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/conversion-rate'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"conversions":50,"sessions":1000}),
   );
@@ -925,15 +962,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/cpa'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"cost":500,"conversions":25}),
   );
@@ -951,15 +989,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/cpc'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"cost":250,"clicks":100}),
   );
@@ -977,15 +1016,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/cpm'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"cost":500,"impressions":100000}),
   );
@@ -1003,15 +1043,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/ctr'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"clicks":100,"impressions":10000}),
   );
@@ -1029,15 +1070,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/markup'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"price":120,"cost":100}),
   );
@@ -1055,15 +1097,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/profit'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"revenue":1000,"costs":600}),
   );
@@ -1081,15 +1124,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/profit-margin'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"revenue":1000,"costs":600}),
   );
@@ -1107,15 +1151,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/retention-rate'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"retained":900,"starting":1000}),
   );
@@ -1133,15 +1178,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/roas'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"revenue":4000,"adSpend":1000}),
   );
@@ -1159,15 +1205,16 @@ Future<void> main() async {
 
 ```dart
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
     Uri.parse('https://api-zelvyn.devs.surf/api/v1/business/roi'),
     headers: {
-      'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
       'Content-Type': 'application/json',
+      // Optional: add if you have a key (higher rate limit). Requires:
+      // import 'dart:io';
+      // 'Authorization': 'Bearer ${Platform.environment['ZELVYN_API_KEY']}',
     },
     body: jsonEncode({"profit":250,"investment":1000}),
   );

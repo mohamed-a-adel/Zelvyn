@@ -4,11 +4,15 @@ Complete, copy-pasteable Swift requests for all 43 public Zelvyn API operations.
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -72,11 +76,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/health")!
 var request = URLRequest(url: url)
 request.httpMethod = "GET"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 
 let semaphore = DispatchSemaphore(value: 0)
 URLSession.shared.dataTask(with: request) { data, _, error in
@@ -104,11 +109,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/statistics/max")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[3,1,4,1,5]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -137,11 +143,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/statistics/mean")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[10,20,30]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -170,11 +177,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/statistics/median")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[1,3,2,5,4]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -203,11 +211,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/statistics/min")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[3,1,4,1,5]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -236,11 +245,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/statistics/percentile")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[1,2,3,4],"percentile":75}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -269,11 +279,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/statistics/range")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[3,1,4,1,5]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -302,11 +313,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/statistics/standard-deviation")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[2,4,4,4,5,5,7,9]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -335,11 +347,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/statistics/sum")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[10,20,30]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -368,11 +381,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/statistics/variance")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[2,4,4,4,5,5,7,9]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -401,11 +415,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/add")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[0.1,0.2,0.3]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -434,11 +449,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/combinations")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"n":52,"r":5}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -467,11 +483,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/divide")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[100,4,5]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -500,11 +517,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/factorial")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"n":5}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -533,11 +551,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/gcd")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"a":12,"b":18}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -566,11 +585,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/lcm")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"a":4,"b":6}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -599,11 +619,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/ln")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"value":1}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -632,11 +653,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/log")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"value":1000}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -665,11 +687,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/multiply")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[2,3,4]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -698,11 +721,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/nth-root")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"value":27,"degree":3}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -731,11 +755,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/percent-of")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"percentage":15,"value":240}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -764,11 +789,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/percentage-change")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"from":80,"to":100}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -797,11 +823,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/permutations")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"n":5,"r":2}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -830,11 +857,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/power")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"base":2,"exponent":10}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -863,11 +891,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/sqrt")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"value":144}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -896,11 +925,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/math/subtract")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"values":[10,3,4]}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -929,11 +959,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/aov")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"revenue":10000,"orders":200}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -962,11 +993,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/break-even")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"fixedCosts":1000,"price":20,"variableCost":12}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -995,11 +1027,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/cac")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"cost":5000,"customers":50}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1028,11 +1061,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/cagr")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"beginValue":100,"endValue":121,"periods":2}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1061,11 +1095,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/churn-rate")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"churned":100,"starting":1000}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1094,11 +1129,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/clv")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"averageOrderValue":50,"purchasesPerPeriod":12,"lifespanPeriods":3}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1127,11 +1163,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/conversion-rate")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"conversions":50,"sessions":1000}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1160,11 +1197,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/cpa")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"cost":500,"conversions":25}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1193,11 +1231,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/cpc")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"cost":250,"clicks":100}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1226,11 +1265,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/cpm")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"cost":500,"impressions":100000}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1259,11 +1299,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/ctr")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"clicks":100,"impressions":10000}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1292,11 +1333,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/markup")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"price":120,"cost":100}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1325,11 +1367,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/profit")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"revenue":1000,"costs":600}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1358,11 +1401,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/profit-margin")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"revenue":1000,"costs":600}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1391,11 +1435,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/retention-rate")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"retained":900,"starting":1000}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1424,11 +1469,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/roas")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"revenue":4000,"adSpend":1000}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)
@@ -1457,11 +1503,12 @@ import Foundation
 let url = URL(string: "https://api-zelvyn.devs.surf/api/v1/business/roi")!
 var request = URLRequest(url: url)
 request.httpMethod = "POST"
-request.setValue(
-    "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
-    forHTTPHeaderField: "Authorization"
-)
 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+// No API key needed. Optional: add this for a higher limit:
+// request.setValue(
+//     "Bearer \(ProcessInfo.processInfo.environment["ZELVYN_API_KEY"] ?? "")",
+//     forHTTPHeaderField: "Authorization"
+// )
 request.httpBody = #"{"profit":250,"investment":1000}"#.data(using: .utf8)
 
 let semaphore = DispatchSemaphore(value: 0)

@@ -4,11 +4,15 @@ Complete, copy-pasteable Kotlin requests for all 43 public Zelvyn API operations
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -75,8 +79,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/health"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .GET()
         .build()
 
@@ -103,8 +108,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/max"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[3,1,4,1,5]}"""))
         .build()
 
@@ -131,8 +137,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/mean"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[10,20,30]}"""))
         .build()
 
@@ -159,8 +166,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/median"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[1,3,2,5,4]}"""))
         .build()
 
@@ -187,8 +195,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/min"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[3,1,4,1,5]}"""))
         .build()
 
@@ -215,8 +224,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/percentile"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[1,2,3,4],"percentile":75}"""))
         .build()
 
@@ -243,8 +253,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/range"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[3,1,4,1,5]}"""))
         .build()
 
@@ -271,8 +282,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/standard-deviation"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[2,4,4,4,5,5,7,9]}"""))
         .build()
 
@@ -299,8 +311,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/sum"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[10,20,30]}"""))
         .build()
 
@@ -327,8 +340,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/variance"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[2,4,4,4,5,5,7,9]}"""))
         .build()
 
@@ -355,8 +369,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/add"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[0.1,0.2,0.3]}"""))
         .build()
 
@@ -383,8 +398,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/combinations"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"n":52,"r":5}"""))
         .build()
 
@@ -411,8 +427,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/divide"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[100,4,5]}"""))
         .build()
 
@@ -439,8 +456,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/factorial"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"n":5}"""))
         .build()
 
@@ -467,8 +485,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/gcd"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"a":12,"b":18}"""))
         .build()
 
@@ -495,8 +514,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/lcm"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"a":4,"b":6}"""))
         .build()
 
@@ -523,8 +543,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/ln"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"value":1}"""))
         .build()
 
@@ -551,8 +572,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/log"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"value":1000}"""))
         .build()
 
@@ -579,8 +601,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/multiply"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[2,3,4]}"""))
         .build()
 
@@ -607,8 +630,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/nth-root"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"value":27,"degree":3}"""))
         .build()
 
@@ -635,8 +659,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/percent-of"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"percentage":15,"value":240}"""))
         .build()
 
@@ -663,8 +688,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/percentage-change"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"from":80,"to":100}"""))
         .build()
 
@@ -691,8 +717,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/permutations"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"n":5,"r":2}"""))
         .build()
 
@@ -719,8 +746,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/power"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"base":2,"exponent":10}"""))
         .build()
 
@@ -747,8 +775,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/sqrt"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"value":144}"""))
         .build()
 
@@ -775,8 +804,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/subtract"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"values":[10,3,4]}"""))
         .build()
 
@@ -803,8 +833,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/aov"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"revenue":10000,"orders":200}"""))
         .build()
 
@@ -831,8 +862,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/break-even"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"fixedCosts":1000,"price":20,"variableCost":12}"""))
         .build()
 
@@ -859,8 +891,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/cac"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"cost":5000,"customers":50}"""))
         .build()
 
@@ -887,8 +920,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/cagr"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"beginValue":100,"endValue":121,"periods":2}"""))
         .build()
 
@@ -915,8 +949,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/churn-rate"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"churned":100,"starting":1000}"""))
         .build()
 
@@ -943,8 +978,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/clv"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"averageOrderValue":50,"purchasesPerPeriod":12,"lifespanPeriods":3}"""))
         .build()
 
@@ -971,8 +1007,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/conversion-rate"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"conversions":50,"sessions":1000}"""))
         .build()
 
@@ -999,8 +1036,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/cpa"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"cost":500,"conversions":25}"""))
         .build()
 
@@ -1027,8 +1065,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/cpc"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"cost":250,"clicks":100}"""))
         .build()
 
@@ -1055,8 +1094,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/cpm"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"cost":500,"impressions":100000}"""))
         .build()
 
@@ -1083,8 +1123,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/ctr"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"clicks":100,"impressions":10000}"""))
         .build()
 
@@ -1111,8 +1152,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/markup"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"price":120,"cost":100}"""))
         .build()
 
@@ -1139,8 +1181,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/profit"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"revenue":1000,"costs":600}"""))
         .build()
 
@@ -1167,8 +1210,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/profit-margin"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"revenue":1000,"costs":600}"""))
         .build()
 
@@ -1195,8 +1239,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/retention-rate"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"retained":900,"starting":1000}"""))
         .build()
 
@@ -1223,8 +1268,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/roas"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"revenue":4000,"adSpend":1000}"""))
         .build()
 
@@ -1251,8 +1297,9 @@ import java.net.http.HttpResponse
 fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/roi"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .POST(HttpRequest.BodyPublishers.ofString("""{"profit":250,"investment":1000}"""))
         .build()
 

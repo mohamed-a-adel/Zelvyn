@@ -4,11 +4,15 @@ Complete, copy-pasteable Java requests for all 43 public Zelvyn API operations.
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -76,8 +80,9 @@ public class Main {
   public static void main(String[] args) throws Exception {
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/health"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .GET()
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -106,9 +111,10 @@ public class Main {
     String body = "{\"values\":[3,1,4,1,5]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/max"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -137,9 +143,10 @@ public class Main {
     String body = "{\"values\":[10,20,30]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/mean"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -168,9 +175,10 @@ public class Main {
     String body = "{\"values\":[1,3,2,5,4]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/median"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -199,9 +207,10 @@ public class Main {
     String body = "{\"values\":[3,1,4,1,5]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/min"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -230,9 +239,10 @@ public class Main {
     String body = "{\"values\":[1,2,3,4],\"percentile\":75}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/percentile"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -261,9 +271,10 @@ public class Main {
     String body = "{\"values\":[3,1,4,1,5]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/range"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -292,9 +303,10 @@ public class Main {
     String body = "{\"values\":[2,4,4,4,5,5,7,9]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/standard-deviation"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -323,9 +335,10 @@ public class Main {
     String body = "{\"values\":[10,20,30]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/sum"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -354,9 +367,10 @@ public class Main {
     String body = "{\"values\":[2,4,4,4,5,5,7,9]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/statistics/variance"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -385,9 +399,10 @@ public class Main {
     String body = "{\"values\":[0.1,0.2,0.3]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/add"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -416,9 +431,10 @@ public class Main {
     String body = "{\"n\":52,\"r\":5}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/combinations"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -447,9 +463,10 @@ public class Main {
     String body = "{\"values\":[100,4,5]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/divide"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -478,9 +495,10 @@ public class Main {
     String body = "{\"n\":5}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/factorial"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -509,9 +527,10 @@ public class Main {
     String body = "{\"a\":12,\"b\":18}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/gcd"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -540,9 +559,10 @@ public class Main {
     String body = "{\"a\":4,\"b\":6}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/lcm"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -571,9 +591,10 @@ public class Main {
     String body = "{\"value\":1}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/ln"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -602,9 +623,10 @@ public class Main {
     String body = "{\"value\":1000}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/log"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -633,9 +655,10 @@ public class Main {
     String body = "{\"values\":[2,3,4]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/multiply"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -664,9 +687,10 @@ public class Main {
     String body = "{\"value\":27,\"degree\":3}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/nth-root"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -695,9 +719,10 @@ public class Main {
     String body = "{\"percentage\":15,\"value\":240}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/percent-of"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -726,9 +751,10 @@ public class Main {
     String body = "{\"from\":80,\"to\":100}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/percentage-change"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -757,9 +783,10 @@ public class Main {
     String body = "{\"n\":5,\"r\":2}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/permutations"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -788,9 +815,10 @@ public class Main {
     String body = "{\"base\":2,\"exponent\":10}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/power"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -819,9 +847,10 @@ public class Main {
     String body = "{\"value\":144}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/sqrt"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -850,9 +879,10 @@ public class Main {
     String body = "{\"values\":[10,3,4]}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/math/subtract"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -881,9 +911,10 @@ public class Main {
     String body = "{\"revenue\":10000,\"orders\":200}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/aov"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -912,9 +943,10 @@ public class Main {
     String body = "{\"fixedCosts\":1000,\"price\":20,\"variableCost\":12}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/break-even"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -943,9 +975,10 @@ public class Main {
     String body = "{\"cost\":5000,\"customers\":50}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/cac"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -974,9 +1007,10 @@ public class Main {
     String body = "{\"beginValue\":100,\"endValue\":121,\"periods\":2}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/cagr"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1005,9 +1039,10 @@ public class Main {
     String body = "{\"churned\":100,\"starting\":1000}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/churn-rate"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1036,9 +1071,10 @@ public class Main {
     String body = "{\"averageOrderValue\":50,\"purchasesPerPeriod\":12,\"lifespanPeriods\":3}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/clv"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1067,9 +1103,10 @@ public class Main {
     String body = "{\"conversions\":50,\"sessions\":1000}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/conversion-rate"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1098,9 +1135,10 @@ public class Main {
     String body = "{\"cost\":500,\"conversions\":25}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/cpa"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1129,9 +1167,10 @@ public class Main {
     String body = "{\"cost\":250,\"clicks\":100}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/cpc"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1160,9 +1199,10 @@ public class Main {
     String body = "{\"cost\":500,\"impressions\":100000}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/cpm"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1191,9 +1231,10 @@ public class Main {
     String body = "{\"clicks\":100,\"impressions\":10000}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/ctr"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1222,9 +1263,10 @@ public class Main {
     String body = "{\"price\":120,\"cost\":100}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/markup"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1253,9 +1295,10 @@ public class Main {
     String body = "{\"revenue\":1000,\"costs\":600}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/profit"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1284,9 +1327,10 @@ public class Main {
     String body = "{\"revenue\":1000,\"costs\":600}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/profit-margin"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1315,9 +1359,10 @@ public class Main {
     String body = "{\"retained\":900,\"starting\":1000}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/retention-rate"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1346,9 +1391,10 @@ public class Main {
     String body = "{\"revenue\":4000,\"adSpend\":1000}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/roas"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()
@@ -1377,9 +1423,10 @@ public class Main {
     String body = "{\"profit\":250,\"investment\":1000}";
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://api-zelvyn.devs.surf/api/v1/business/roi"))
-        .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .header("Content-Type", "application/json")
         .POST(HttpRequest.BodyPublishers.ofString(body))
+        // Optional: add this line if you have a key (higher rate limit).
+        // .header("Authorization", "Bearer " + System.getenv("ZELVYN_API_KEY"))
         .build();
 
     HttpResponse<String> response = HttpClient.newHttpClient()

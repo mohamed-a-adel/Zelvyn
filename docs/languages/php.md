@@ -4,11 +4,15 @@ Complete, copy-pasteable PHP requests for all 43 public Zelvyn API operations.
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -71,8 +75,9 @@ Base URL: `https://api-zelvyn.devs.surf`
 $ch = curl_init("https://api-zelvyn.devs.surf/api/v1/health");
 curl_setopt_array($ch, [
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -98,8 +103,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -125,8 +131,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -152,8 +159,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -179,8 +187,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -206,8 +215,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -233,8 +243,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -260,8 +271,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -287,8 +299,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -314,8 +327,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -341,8 +355,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -368,8 +383,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -395,8 +411,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -422,8 +439,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -449,8 +467,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -476,8 +495,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -503,8 +523,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -530,8 +551,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -557,8 +579,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -584,8 +607,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -611,8 +635,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -638,8 +663,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -665,8 +691,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -692,8 +719,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -719,8 +747,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -746,8 +775,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -773,8 +803,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -800,8 +831,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -827,8 +859,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -854,8 +887,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -881,8 +915,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -908,8 +943,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -935,8 +971,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -962,8 +999,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -989,8 +1027,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -1016,8 +1055,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -1043,8 +1083,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -1070,8 +1111,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -1097,8 +1139,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -1124,8 +1167,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -1151,8 +1195,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -1178,8 +1223,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);
@@ -1205,8 +1251,9 @@ curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
             "Content-Type: application/json",
+            // Optional: add this if you have a key (higher rate limit):
+            // "Authorization: Bearer " . getenv("ZELVYN_API_KEY"),
         ],
         CURLOPT_RETURNTRANSFER => true,
 ]);

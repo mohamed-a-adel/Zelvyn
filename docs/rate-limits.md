@@ -20,7 +20,7 @@ Limits are reported by the live OpenAPI document as `x-zelvyn-limits`. The value
 | global | the whole API | off unless configured |
 | admin | private admin control plane | ADMIN_RATE_LIMIT_GLOBAL_PER_MINUTE / ADMIN_RATE_LIMIT_IP_PER_MINUTE / ADMIN_RATE_LIMIT_FAILED_PER_MINUTE (default 120 / 60 / 10 per minute) |
 
-Anonymous traffic is limited to 60 requests per minute per anonymised caller hash. Calculation endpoints require a key by default, so anonymous limits apply only when an operator explicitly opens an endpoint.
+Anonymous traffic is limited to 60 requests per minute per anonymised caller hash. **This is the default**: every calculation endpoint accepts keyless requests. Adding an API key raises the caller to their plan's limit and monthly quota.
 
 ## Request limits
 

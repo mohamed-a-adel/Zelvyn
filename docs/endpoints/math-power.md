@@ -6,7 +6,7 @@ Returns `base^exponent`. `0^0 = 1` and `0^positive = 0` by convention; `0^negati
 
 ## Authentication
 
-Send a Zelvyn API key as `Authorization: Bearer $ZELVYN_API_KEY`. The alternative `x-api-key: $ZELVYN_API_KEY` header is also accepted. See [authentication](../authentication.md).
+No API key is required. If you have a key, add `Authorization: Bearer $ZELVYN_API_KEY` (or `x-api-key`) to use your plan's higher rate limit and quota. See [authentication](../authentication.md).
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -40,9 +40,10 @@ Base URL: `https://api-zelvyn.devs.surf`
 ### cURL
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/power' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"base":2,"exponent":10}'
 ```

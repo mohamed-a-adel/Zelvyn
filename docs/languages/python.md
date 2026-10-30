@@ -4,11 +4,15 @@ Complete, copy-pasteable Python requests for all 43 public Zelvyn API operations
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -67,15 +71,16 @@ Base URL: `https://api-zelvyn.devs.surf`
 `GET /api/v1/health`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "GET",
     "https://api-zelvyn.devs.surf/api/v1/health",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
 )
 data = response.json()["data"]
@@ -90,15 +95,16 @@ data = response.json()["data"]
 `POST /api/v1/statistics/max`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/statistics/max",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[3,1,4,1,5]},
 )
@@ -114,15 +120,16 @@ data = response.json()["data"]
 `POST /api/v1/statistics/mean`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/statistics/mean",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[10,20,30]},
 )
@@ -138,15 +145,16 @@ data = response.json()["data"]
 `POST /api/v1/statistics/median`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/statistics/median",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[1,3,2,5,4]},
 )
@@ -162,15 +170,16 @@ data = response.json()["data"]
 `POST /api/v1/statistics/min`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/statistics/min",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[3,1,4,1,5]},
 )
@@ -186,15 +195,16 @@ data = response.json()["data"]
 `POST /api/v1/statistics/percentile`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/statistics/percentile",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[1,2,3,4],"percentile":75},
 )
@@ -210,15 +220,16 @@ data = response.json()["data"]
 `POST /api/v1/statistics/range`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/statistics/range",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[3,1,4,1,5]},
 )
@@ -234,15 +245,16 @@ data = response.json()["data"]
 `POST /api/v1/statistics/standard-deviation`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/statistics/standard-deviation",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[2,4,4,4,5,5,7,9]},
 )
@@ -258,15 +270,16 @@ data = response.json()["data"]
 `POST /api/v1/statistics/sum`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/statistics/sum",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[10,20,30]},
 )
@@ -282,15 +295,16 @@ data = response.json()["data"]
 `POST /api/v1/statistics/variance`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/statistics/variance",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[2,4,4,4,5,5,7,9]},
 )
@@ -306,15 +320,16 @@ data = response.json()["data"]
 `POST /api/v1/math/add`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/add",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[0.1,0.2,0.3]},
 )
@@ -330,15 +345,16 @@ data = response.json()["data"]
 `POST /api/v1/math/combinations`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/combinations",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"n":52,"r":5},
 )
@@ -354,15 +370,16 @@ data = response.json()["data"]
 `POST /api/v1/math/divide`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/divide",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[100,4,5]},
 )
@@ -378,15 +395,16 @@ data = response.json()["data"]
 `POST /api/v1/math/factorial`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/factorial",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"n":5},
 )
@@ -402,15 +420,16 @@ data = response.json()["data"]
 `POST /api/v1/math/gcd`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/gcd",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"a":12,"b":18},
 )
@@ -426,15 +445,16 @@ data = response.json()["data"]
 `POST /api/v1/math/lcm`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/lcm",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"a":4,"b":6},
 )
@@ -450,15 +470,16 @@ data = response.json()["data"]
 `POST /api/v1/math/ln`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/ln",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"value":1},
 )
@@ -474,15 +495,16 @@ data = response.json()["data"]
 `POST /api/v1/math/log`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/log",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"value":1000},
 )
@@ -498,15 +520,16 @@ data = response.json()["data"]
 `POST /api/v1/math/multiply`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/multiply",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[2,3,4]},
 )
@@ -522,15 +545,16 @@ data = response.json()["data"]
 `POST /api/v1/math/nth-root`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/nth-root",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"value":27,"degree":3},
 )
@@ -546,15 +570,16 @@ data = response.json()["data"]
 `POST /api/v1/math/percent-of`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/percent-of",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"percentage":15,"value":240},
 )
@@ -570,15 +595,16 @@ data = response.json()["data"]
 `POST /api/v1/math/percentage-change`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/percentage-change",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"from":80,"to":100},
 )
@@ -594,15 +620,16 @@ data = response.json()["data"]
 `POST /api/v1/math/permutations`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/permutations",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"n":5,"r":2},
 )
@@ -618,15 +645,16 @@ data = response.json()["data"]
 `POST /api/v1/math/power`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/power",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"base":2,"exponent":10},
 )
@@ -642,15 +670,16 @@ data = response.json()["data"]
 `POST /api/v1/math/sqrt`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/sqrt",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"value":144},
 )
@@ -666,15 +695,16 @@ data = response.json()["data"]
 `POST /api/v1/math/subtract`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/math/subtract",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"values":[10,3,4]},
 )
@@ -690,15 +720,16 @@ data = response.json()["data"]
 `POST /api/v1/business/aov`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/aov",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"revenue":10000,"orders":200},
 )
@@ -714,15 +745,16 @@ data = response.json()["data"]
 `POST /api/v1/business/break-even`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/break-even",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"fixedCosts":1000,"price":20,"variableCost":12},
 )
@@ -738,15 +770,16 @@ data = response.json()["data"]
 `POST /api/v1/business/cac`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/cac",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"cost":5000,"customers":50},
 )
@@ -762,15 +795,16 @@ data = response.json()["data"]
 `POST /api/v1/business/cagr`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/cagr",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"beginValue":100,"endValue":121,"periods":2},
 )
@@ -786,15 +820,16 @@ data = response.json()["data"]
 `POST /api/v1/business/churn-rate`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/churn-rate",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"churned":100,"starting":1000},
 )
@@ -810,15 +845,16 @@ data = response.json()["data"]
 `POST /api/v1/business/clv`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/clv",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"averageOrderValue":50,"purchasesPerPeriod":12,"lifespanPeriods":3},
 )
@@ -834,15 +870,16 @@ data = response.json()["data"]
 `POST /api/v1/business/conversion-rate`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/conversion-rate",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"conversions":50,"sessions":1000},
 )
@@ -858,15 +895,16 @@ data = response.json()["data"]
 `POST /api/v1/business/cpa`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/cpa",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"cost":500,"conversions":25},
 )
@@ -882,15 +920,16 @@ data = response.json()["data"]
 `POST /api/v1/business/cpc`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/cpc",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"cost":250,"clicks":100},
 )
@@ -906,15 +945,16 @@ data = response.json()["data"]
 `POST /api/v1/business/cpm`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/cpm",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"cost":500,"impressions":100000},
 )
@@ -930,15 +970,16 @@ data = response.json()["data"]
 `POST /api/v1/business/ctr`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/ctr",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"clicks":100,"impressions":10000},
 )
@@ -954,15 +995,16 @@ data = response.json()["data"]
 `POST /api/v1/business/markup`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/markup",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"price":120,"cost":100},
 )
@@ -978,15 +1020,16 @@ data = response.json()["data"]
 `POST /api/v1/business/profit`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/profit",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"revenue":1000,"costs":600},
 )
@@ -1002,15 +1045,16 @@ data = response.json()["data"]
 `POST /api/v1/business/profit-margin`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/profit-margin",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"revenue":1000,"costs":600},
 )
@@ -1026,15 +1070,16 @@ data = response.json()["data"]
 `POST /api/v1/business/retention-rate`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/retention-rate",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"retained":900,"starting":1000},
 )
@@ -1050,15 +1095,16 @@ data = response.json()["data"]
 `POST /api/v1/business/roas`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/roas",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"revenue":4000,"adSpend":1000},
 )
@@ -1074,15 +1120,16 @@ data = response.json()["data"]
 `POST /api/v1/business/roi`
 
 ```python
-import os
+import os  # Optional: only needed for the commented API-key header
 import requests
 
 response = requests.request(
     "POST",
     "https://api-zelvyn.devs.surf/api/v1/business/roi",
     headers={
-        "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
         "Content-Type": "application/json",
+        # Optional: add this line if you have a key (higher rate limit).
+        # "Authorization": f"Bearer {os.environ['ZELVYN_API_KEY']}",
     },
     json={"profit":250,"investment":1000},
 )

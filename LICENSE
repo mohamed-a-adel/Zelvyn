@@ -1,0 +1,48 @@
+# Proprietary License
+
+Copyright (c) 2026 Zelvyn. All rights reserved.
+
+This repository and its contents — including the documentation, examples,
+OpenAPI document, and any accompanying materials — are proprietary and are made
+available for reference only.
+
+## Permitted use
+
+You may:
+
+- Read, link to, and share this repository for the purpose of using the Zelvyn
+  API.
+- Copy the code examples into your own application to integrate with the Zelvyn
+  API.
+- Quote short excerpts with clear attribution and a link to this repository.
+
+## Restrictions
+
+Without prior written permission from Zelvyn, you may not:
+
+- Republish, redistribute, or mirror this repository or a substantial portion of
+  it.
+- Sell, sublicense, or commercially exploit the documentation or examples as a
+  standalone product.
+- Remove or alter copyright, trademark, or attribution notices.
+- Use the Zelvyn name, logo, or marks in a way that suggests endorsement or
+  affiliation.
+
+## No warranty
+
+The documentation and examples are provided "as is", without warranty of any
+kind, express or implied, including but not limited to the warranties of
+merchantability, fitness for a particular purpose, and non-infringement. In no
+event shall the authors or copyright holders be liable for any claim, damages, or
+other liability arising from, out of, or in connection with the documentation or
+its use.
+
+## API service terms
+
+Use of the hosted Zelvyn API is governed separately by the terms published at
+<https://zelvyn.devs.surf>. This license covers this repository, not the service.
+
+## Contact
+
+For permission requests, contact the maintainer through
+<https://zelvyn.devs.surf/support>.

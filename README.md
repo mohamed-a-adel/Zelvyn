@@ -1,6 +1,6 @@
 # Zelvyn API — public handbook
 
-[![API](https://i.postimg.cc/rFQymy4T/zelvyn.png)](https://api-zelvyn.devs.surf)
+[<img src="https://i.postimg.cc/rFQymy4T/zelvyn.png" alt="API" height="20" />](https://api-zelvyn.devs.surf)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-3.1-blue)](https://api-zelvyn.devs.surf/openapi.json)
 
 The **Zelvyn API** is a stateless calculation and analytics platform for mathematics, statistics and business metrics. Every request is a JSON object; every response uses one envelope with a `meta.requestId` correlation id. Calculations are never persisted.
@@ -12,19 +12,26 @@ The **Zelvyn API** is a stateless calculation and analytics platform for mathema
 
 ## Authentication
 
-The health probe is public. **Every calculation endpoint requires an API key** unless an operator explicitly opens that endpoint for anonymous access.
+**No API key is required.** Every calculation endpoint works keyless on the anonymous rate limit.
 
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."
+curl -sS https://api-zelvyn.devs.surf/api/v1/statistics/mean \
+  -H "Content-Type: application/json" \
+  -d '{"values":[10,20,30]}'
+```
+
+If you have a Zelvyn API key, add it for a higher plan limit — it is always optional:
+
+```bash
 curl -sS https://api-zelvyn.devs.surf/api/v1/statistics/mean \
   -H "Authorization: Bearer $ZELVYN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"values":[10,20,30]}'
 ```
 
-Send the key as `Authorization: Bearer <key>`, or as `x-api-key: <key>`. If both are present, `Authorization` wins. Keys are issued for a `LIVE` or `TEST` environment and a plan.
+Send the key as `Authorization: Bearer <key>`, or as `x-api-key: <key>`. If both are present, `Authorization` wins. Keys are issued for a `LIVE` or `TEST` environment and a plan. To request a higher limit, [contact support](https://zelvyn.devs.surf/support).
 
-> This repository documents the public calculation API. Account/session endpoints (`/api/v1/account/*`) are cookie- and CSRF-authenticated, are excluded from the public OpenAPI document, and are not needed to call any endpoint in this handbook. Ask the Zelvyn operator for a key if you do not have one.
+> This repository documents the public calculation API. Account/session endpoints (`/api/v1/account/*`) are cookie- and CSRF-authenticated, are excluded from the public OpenAPI document, and are not needed to call any endpoint in this handbook.
 
 ## All 43 requests
 
@@ -147,9 +154,17 @@ Failures replace `data` with `error`:
 - Every error is a JSON envelope. API paths never return an HTML error page.
 - `x-request-id` is echoed in `meta.requestId` when valid; otherwise the server generates a UUID v4.
 
+## Community
+
+- [Contributing](CONTRIBUTING.md)
+- [Code of conduct](CODE_OF_CONDUCT.md)
+- [Security policy](SECURITY.md)
+- [Accessibility statement](ACCESSIBILITY.md)
+- [Support](https://zelvyn.devs.surf/support)
+
 ## License
 
-Proprietary. See the terms published at <https://zelvyn.devs.surf>.
+Proprietary. See [LICENSE](LICENSE) and the terms published at <https://zelvyn.devs.surf>.
 
 ---
 

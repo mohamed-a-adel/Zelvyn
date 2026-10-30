@@ -4,11 +4,15 @@ Complete, copy-pasteable Ruby requests for all 43 public Zelvyn API operations.
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -75,8 +79,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 
 response = http.request(request)
 puts JSON.parse(response.body)["data"]
@@ -99,8 +104,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [3, 1, 4, 1, 5] }.to_json
 
 response = http.request(request)
@@ -124,8 +130,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [10, 20, 30] }.to_json
 
 response = http.request(request)
@@ -149,8 +156,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [1, 3, 2, 5, 4] }.to_json
 
 response = http.request(request)
@@ -174,8 +182,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [3, 1, 4, 1, 5] }.to_json
 
 response = http.request(request)
@@ -199,8 +208,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [1, 2, 3, 4], percentile: 75 }.to_json
 
 response = http.request(request)
@@ -224,8 +234,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [3, 1, 4, 1, 5] }.to_json
 
 response = http.request(request)
@@ -249,8 +260,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [2, 4, 4, 4, 5, 5, 7, 9] }.to_json
 
 response = http.request(request)
@@ -274,8 +286,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [10, 20, 30] }.to_json
 
 response = http.request(request)
@@ -299,8 +312,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [2, 4, 4, 4, 5, 5, 7, 9] }.to_json
 
 response = http.request(request)
@@ -324,8 +338,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [0.1, 0.2, 0.3] }.to_json
 
 response = http.request(request)
@@ -349,8 +364,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { n: 52, r: 5 }.to_json
 
 response = http.request(request)
@@ -374,8 +390,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [100, 4, 5] }.to_json
 
 response = http.request(request)
@@ -399,8 +416,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { n: 5 }.to_json
 
 response = http.request(request)
@@ -424,8 +442,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { a: 12, b: 18 }.to_json
 
 response = http.request(request)
@@ -449,8 +468,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { a: 4, b: 6 }.to_json
 
 response = http.request(request)
@@ -474,8 +494,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { value: 1 }.to_json
 
 response = http.request(request)
@@ -499,8 +520,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { value: 1000 }.to_json
 
 response = http.request(request)
@@ -524,8 +546,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [2, 3, 4] }.to_json
 
 response = http.request(request)
@@ -549,8 +572,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { value: 27, degree: 3 }.to_json
 
 response = http.request(request)
@@ -574,8 +598,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { percentage: 15, value: 240 }.to_json
 
 response = http.request(request)
@@ -599,8 +624,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { from: 80, to: 100 }.to_json
 
 response = http.request(request)
@@ -624,8 +650,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { n: 5, r: 2 }.to_json
 
 response = http.request(request)
@@ -649,8 +676,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { base: 2, exponent: 10 }.to_json
 
 response = http.request(request)
@@ -674,8 +702,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { value: 144 }.to_json
 
 response = http.request(request)
@@ -699,8 +728,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { values: [10, 3, 4] }.to_json
 
 response = http.request(request)
@@ -724,8 +754,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { revenue: 10000, orders: 200 }.to_json
 
 response = http.request(request)
@@ -749,8 +780,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { fixedCosts: 1000, price: 20, variableCost: 12 }.to_json
 
 response = http.request(request)
@@ -774,8 +806,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { cost: 5000, customers: 50 }.to_json
 
 response = http.request(request)
@@ -799,8 +832,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { beginValue: 100, endValue: 121, periods: 2 }.to_json
 
 response = http.request(request)
@@ -824,8 +858,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { churned: 100, starting: 1000 }.to_json
 
 response = http.request(request)
@@ -849,8 +884,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { averageOrderValue: 50, purchasesPerPeriod: 12, lifespanPeriods: 3 }.to_json
 
 response = http.request(request)
@@ -874,8 +910,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { conversions: 50, sessions: 1000 }.to_json
 
 response = http.request(request)
@@ -899,8 +936,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { cost: 500, conversions: 25 }.to_json
 
 response = http.request(request)
@@ -924,8 +962,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { cost: 250, clicks: 100 }.to_json
 
 response = http.request(request)
@@ -949,8 +988,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { cost: 500, impressions: 100000 }.to_json
 
 response = http.request(request)
@@ -974,8 +1014,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { clicks: 100, impressions: 10000 }.to_json
 
 response = http.request(request)
@@ -999,8 +1040,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { price: 120, cost: 100 }.to_json
 
 response = http.request(request)
@@ -1024,8 +1066,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { revenue: 1000, costs: 600 }.to_json
 
 response = http.request(request)
@@ -1049,8 +1092,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { revenue: 1000, costs: 600 }.to_json
 
 response = http.request(request)
@@ -1074,8 +1118,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { retained: 900, starting: 1000 }.to_json
 
 response = http.request(request)
@@ -1099,8 +1144,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { revenue: 4000, adSpend: 1000 }.to_json
 
 response = http.request(request)
@@ -1124,8 +1170,9 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 request = Net::HTTP::Post.new(uri)
-request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request["Content-Type"] = "application/json"
+# No API key needed. Optional: add this line for a higher limit:
+# request["Authorization"] = "Bearer #{ENV.fetch("ZELVYN_API_KEY")}"
 request.body = { profit: 250, investment: 1000 }.to_json
 
 response = http.request(request)

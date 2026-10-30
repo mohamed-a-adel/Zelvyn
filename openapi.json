@@ -3,7 +3,7 @@
   "info": {
     "title": "Zelvyn API",
     "summary": "Math. Data. Decisions.",
-    "description": "The **Zelvyn API** is a stateless calculation and analytics platform for\nmathematics, statistics and business metrics.\n\nEvery JSON response shares one envelope: successes return\n`{ success, data, meta }` and failures return `{ success, error, meta }`,\nwith a `meta.requestId` correlation id on both. Calculations are never\npersisted, and no database is on the calculation path.\n\n## Authentication\n\nSend your API key in the `Authorization: Bearer <key>` header, or in `x-api-key`. The health probe at `/api/v1/health` is public; every calculation endpoint requires a valid key unless an operator has explicitly opened it for anonymous access. Keys are scoped to an environment and a plan.\n\n## Conventions\n\n- All request bodies are JSON objects and are strictly validated: unknown\n  fields are rejected (`additionalProperties: false`).\n- Percentage metrics return **percent points** (`40` means 40%); `roas` is a\n  plain ratio (`4` means 4×).\n  Percentages are never fractions and never carry a `%` sign.\n  - Exact integer results beyond `Number.MAX_SAFE_INTEGER` are returned as\n    decimal strings (never rounded).\n- Every error is a JSON envelope; no HTML error pages are returned for API paths.",
+    "description": "The **Zelvyn API** is a stateless calculation and analytics platform for\nmathematics, statistics and business metrics.\n\nEvery JSON response shares one envelope: successes return\n`{ success, data, meta }` and failures return `{ success, error, meta }`,\nwith a `meta.requestId` correlation id on both. Calculations are never\npersisted, and no database is on the calculation path.\n\n## Authentication\n\n**Every calculation endpoint works without an API key.** Requests are served on the anonymous per-IP rate limit by default. An API key is optional: send one in `Authorization: Bearer <key>` (or `x-api-key`) to use your account's higher plan rate limit and monthly quota. Keys are scoped to an environment and a plan. To request a higher limit, contact support. A key you supply is always validated: an invalid or revoked key is rejected with `401` rather than silently downgraded to anonymous.\n\n## Conventions\n\n- All request bodies are JSON objects and are strictly validated: unknown\n  fields are rejected (`additionalProperties: false`).\n- Percentage metrics return **percent points** (`40` means 40%); `roas` is a\n  plain ratio (`4` means 4×).\n  Percentages are never fractions and never carry a `%` sign.\n  - Exact integer results beyond `Number.MAX_SAFE_INTEGER` are returned as\n    decimal strings (never rounded).\n- Every error is a JSON envelope; no HTML error pages are returned for API paths.",
     "version": "0.1.0",
     "license": {
       "name": "Proprietary"
@@ -21,6 +21,7 @@
     }
   ],
   "security": [
+    {},
     {
       "bearerAuth": []
     },
@@ -7839,13 +7840,13 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "Zelvyn API key",
-        "description": "Send the API key as `Authorization: Bearer zlv_<env>_<keyId>_<secret>`. Required on every operation except the health probe."
+        "description": "Optional. Send an API key as `Authorization: Bearer zlv_<env>_<keyId>_<secret>` to use your plan's higher rate limit and quota. Keyless requests are served on the anonymous rate limit."
       },
       "apiKeyAuth": {
         "type": "apiKey",
         "in": "header",
         "name": "x-api-key",
-        "description": "Alternative to the `Authorization` header: send the raw API key in `x-api-key`. `Authorization` takes precedence if both are present."
+        "description": "Optional alternative to the `Authorization` header: send the raw API key in `x-api-key`. `Authorization` takes precedence if both are present."
       }
     }
   },

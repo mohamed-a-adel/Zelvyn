@@ -4,11 +4,15 @@ Complete, copy-pasteable cURL requests for all 43 public Zelvyn API operations.
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -67,9 +71,10 @@ Base URL: `https://api-zelvyn.devs.surf`
 `GET /api/v1/health`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X GET 'https://api-zelvyn.devs.surf/api/v1/health' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json'
 ```
 
@@ -82,9 +87,10 @@ curl -sS \
 `POST /api/v1/statistics/max`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/statistics/max' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[3,1,4,1,5]}'
 ```
@@ -98,9 +104,10 @@ curl -sS \
 `POST /api/v1/statistics/mean`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/statistics/mean' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[10,20,30]}'
 ```
@@ -114,9 +121,10 @@ curl -sS \
 `POST /api/v1/statistics/median`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/statistics/median' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[1,3,2,5,4]}'
 ```
@@ -130,9 +138,10 @@ curl -sS \
 `POST /api/v1/statistics/min`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/statistics/min' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[3,1,4,1,5]}'
 ```
@@ -146,9 +155,10 @@ curl -sS \
 `POST /api/v1/statistics/percentile`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/statistics/percentile' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[1,2,3,4],"percentile":75}'
 ```
@@ -162,9 +172,10 @@ curl -sS \
 `POST /api/v1/statistics/range`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/statistics/range' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[3,1,4,1,5]}'
 ```
@@ -178,9 +189,10 @@ curl -sS \
 `POST /api/v1/statistics/standard-deviation`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/statistics/standard-deviation' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[2,4,4,4,5,5,7,9]}'
 ```
@@ -194,9 +206,10 @@ curl -sS \
 `POST /api/v1/statistics/sum`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/statistics/sum' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[10,20,30]}'
 ```
@@ -210,9 +223,10 @@ curl -sS \
 `POST /api/v1/statistics/variance`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/statistics/variance' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[2,4,4,4,5,5,7,9]}'
 ```
@@ -226,9 +240,10 @@ curl -sS \
 `POST /api/v1/math/add`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/add' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[0.1,0.2,0.3]}'
 ```
@@ -242,9 +257,10 @@ curl -sS \
 `POST /api/v1/math/combinations`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/combinations' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"n":52,"r":5}'
 ```
@@ -258,9 +274,10 @@ curl -sS \
 `POST /api/v1/math/divide`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/divide' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[100,4,5]}'
 ```
@@ -274,9 +291,10 @@ curl -sS \
 `POST /api/v1/math/factorial`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/factorial' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"n":5}'
 ```
@@ -290,9 +308,10 @@ curl -sS \
 `POST /api/v1/math/gcd`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/gcd' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"a":12,"b":18}'
 ```
@@ -306,9 +325,10 @@ curl -sS \
 `POST /api/v1/math/lcm`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/lcm' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"a":4,"b":6}'
 ```
@@ -322,9 +342,10 @@ curl -sS \
 `POST /api/v1/math/ln`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/ln' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"value":1}'
 ```
@@ -338,9 +359,10 @@ curl -sS \
 `POST /api/v1/math/log`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/log' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"value":1000}'
 ```
@@ -354,9 +376,10 @@ curl -sS \
 `POST /api/v1/math/multiply`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/multiply' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[2,3,4]}'
 ```
@@ -370,9 +393,10 @@ curl -sS \
 `POST /api/v1/math/nth-root`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/nth-root' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"value":27,"degree":3}'
 ```
@@ -386,9 +410,10 @@ curl -sS \
 `POST /api/v1/math/percent-of`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/percent-of' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"percentage":15,"value":240}'
 ```
@@ -402,9 +427,10 @@ curl -sS \
 `POST /api/v1/math/percentage-change`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/percentage-change' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"from":80,"to":100}'
 ```
@@ -418,9 +444,10 @@ curl -sS \
 `POST /api/v1/math/permutations`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/permutations' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"n":5,"r":2}'
 ```
@@ -434,9 +461,10 @@ curl -sS \
 `POST /api/v1/math/power`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/power' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"base":2,"exponent":10}'
 ```
@@ -450,9 +478,10 @@ curl -sS \
 `POST /api/v1/math/sqrt`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/sqrt' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"value":144}'
 ```
@@ -466,9 +495,10 @@ curl -sS \
 `POST /api/v1/math/subtract`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/math/subtract' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"values":[10,3,4]}'
 ```
@@ -482,9 +512,10 @@ curl -sS \
 `POST /api/v1/business/aov`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/aov' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"revenue":10000,"orders":200}'
 ```
@@ -498,9 +529,10 @@ curl -sS \
 `POST /api/v1/business/break-even`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/break-even' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"fixedCosts":1000,"price":20,"variableCost":12}'
 ```
@@ -514,9 +546,10 @@ curl -sS \
 `POST /api/v1/business/cac`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/cac' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"cost":5000,"customers":50}'
 ```
@@ -530,9 +563,10 @@ curl -sS \
 `POST /api/v1/business/cagr`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/cagr' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"beginValue":100,"endValue":121,"periods":2}'
 ```
@@ -546,9 +580,10 @@ curl -sS \
 `POST /api/v1/business/churn-rate`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/churn-rate' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"churned":100,"starting":1000}'
 ```
@@ -562,9 +597,10 @@ curl -sS \
 `POST /api/v1/business/clv`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/clv' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"averageOrderValue":50,"purchasesPerPeriod":12,"lifespanPeriods":3}'
 ```
@@ -578,9 +614,10 @@ curl -sS \
 `POST /api/v1/business/conversion-rate`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/conversion-rate' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"conversions":50,"sessions":1000}'
 ```
@@ -594,9 +631,10 @@ curl -sS \
 `POST /api/v1/business/cpa`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/cpa' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"cost":500,"conversions":25}'
 ```
@@ -610,9 +648,10 @@ curl -sS \
 `POST /api/v1/business/cpc`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/cpc' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"cost":250,"clicks":100}'
 ```
@@ -626,9 +665,10 @@ curl -sS \
 `POST /api/v1/business/cpm`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/cpm' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"cost":500,"impressions":100000}'
 ```
@@ -642,9 +682,10 @@ curl -sS \
 `POST /api/v1/business/ctr`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/ctr' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"clicks":100,"impressions":10000}'
 ```
@@ -658,9 +699,10 @@ curl -sS \
 `POST /api/v1/business/markup`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/markup' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"price":120,"cost":100}'
 ```
@@ -674,9 +716,10 @@ curl -sS \
 `POST /api/v1/business/profit`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/profit' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"revenue":1000,"costs":600}'
 ```
@@ -690,9 +733,10 @@ curl -sS \
 `POST /api/v1/business/profit-margin`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/profit-margin' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"revenue":1000,"costs":600}'
 ```
@@ -706,9 +750,10 @@ curl -sS \
 `POST /api/v1/business/retention-rate`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/retention-rate' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"retained":900,"starting":1000}'
 ```
@@ -722,9 +767,10 @@ curl -sS \
 `POST /api/v1/business/roas`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/roas' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"revenue":4000,"adSpend":1000}'
 ```
@@ -738,9 +784,10 @@ curl -sS \
 `POST /api/v1/business/roi`
 
 ```bash
+# No API key needed. Optional: add this header for a higher limit:
+#   -H 'Authorization: Bearer $ZELVYN_API_KEY'
 curl -sS \
   -X POST 'https://api-zelvyn.devs.surf/api/v1/business/roi' \
-  -H 'Authorization: Bearer $ZELVYN_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"profit":250,"investment":1000}'
 ```

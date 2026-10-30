@@ -1,0 +1,68 @@
+name: Bug report
+description: Report a reproducible defect in the live API or its response contract.
+title: "bug: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do **not** include live API keys, access codes, passwords, or personal data.
+        For a security vulnerability, use the Security tab instead of this form.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where did it happen?
+      options:
+        - Hosted API (api-zelvyn.devs.surf)
+        - Public website (zelvyn.devs.surf)
+        - Documentation handbook
+        - Example snippet
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: endpoint
+    attributes:
+      label: Endpoint or page
+      placeholder: POST /api/v1/statistics/mean
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the request body and headers (with credentials removed).
+      placeholder: |
+        1. Send POST /api/v1/statistics/mean with {"values":[1,2,3]}
+        2. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: Paste the response envelope, status code, and `meta.requestId`.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Client environment
+      placeholder: curl 8.5 / Node 22 / Python 3.12
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have removed every live credential and all personal data.
+          required: true
+        - label: I searched existing issues and this is not a duplicate.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true

@@ -4,11 +4,15 @@ Complete, copy-pasteable C# requests for all 43 public Zelvyn API operations.
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -77,9 +81,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
         var response = await client.GetAsync("https://api-zelvyn.devs.surf/api/v1/health");
         Console.WriteLine(await response.Content.ReadAsStringAsync());
     }
@@ -105,9 +110,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[3,1,4,1,5]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/statistics/max", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -134,9 +140,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[10,20,30]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/statistics/mean", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -163,9 +170,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[1,3,2,5,4]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/statistics/median", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -192,9 +200,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[3,1,4,1,5]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/statistics/min", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -221,9 +230,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[1,2,3,4],\"percentile\":75}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/statistics/percentile", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -250,9 +260,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[3,1,4,1,5]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/statistics/range", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -279,9 +290,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[2,4,4,4,5,5,7,9]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/statistics/standard-deviation", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -308,9 +320,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[10,20,30]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/statistics/sum", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -337,9 +350,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[2,4,4,4,5,5,7,9]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/statistics/variance", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -366,9 +380,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[0.1,0.2,0.3]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/add", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -395,9 +410,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"n\":52,\"r\":5}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/combinations", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -424,9 +440,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[100,4,5]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/divide", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -453,9 +470,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"n\":5}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/factorial", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -482,9 +500,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"a\":12,\"b\":18}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/gcd", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -511,9 +530,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"a\":4,\"b\":6}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/lcm", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -540,9 +560,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"value\":1}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/ln", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -569,9 +590,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"value\":1000}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/log", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -598,9 +620,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[2,3,4]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/multiply", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -627,9 +650,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"value\":27,\"degree\":3}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/nth-root", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -656,9 +680,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"percentage\":15,\"value\":240}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/percent-of", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -685,9 +710,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"from\":80,\"to\":100}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/percentage-change", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -714,9 +740,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"n\":5,\"r\":2}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/permutations", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -743,9 +770,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"base\":2,\"exponent\":10}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/power", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -772,9 +800,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"value\":144}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/sqrt", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -801,9 +830,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"values\":[10,3,4]}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/math/subtract", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -830,9 +860,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"revenue\":10000,\"orders\":200}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/aov", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -859,9 +890,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"fixedCosts\":1000,\"price\":20,\"variableCost\":12}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/break-even", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -888,9 +920,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"cost\":5000,\"customers\":50}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/cac", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -917,9 +950,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"beginValue\":100,\"endValue\":121,\"periods\":2}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/cagr", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -946,9 +980,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"churned\":100,\"starting\":1000}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/churn-rate", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -975,9 +1010,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"averageOrderValue\":50,\"purchasesPerPeriod\":12,\"lifespanPeriods\":3}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/clv", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1004,9 +1040,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"conversions\":50,\"sessions\":1000}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/conversion-rate", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1033,9 +1070,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"cost\":500,\"conversions\":25}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/cpa", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1062,9 +1100,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"cost\":250,\"clicks\":100}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/cpc", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1091,9 +1130,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"cost\":500,\"impressions\":100000}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/cpm", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1120,9 +1160,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"clicks\":100,\"impressions\":10000}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/ctr", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1149,9 +1190,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"price\":120,\"cost\":100}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/markup", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1178,9 +1220,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"revenue\":1000,\"costs\":600}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/profit", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1207,9 +1250,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"revenue\":1000,\"costs\":600}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/profit-margin", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1236,9 +1280,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"retained\":900,\"starting\":1000}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/retention-rate", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1265,9 +1310,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"revenue\":4000,\"adSpend\":1000}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/roas", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
@@ -1294,9 +1340,10 @@ class Program
     static async Task Main()
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.Add(
-            "Authorization",
-            "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
+        // No API key needed. Optional: add this for a higher limit:
+        // client.DefaultRequestHeaders.Add(
+        //     "Authorization",
+        //     "Bearer " + Environment.GetEnvironmentVariable("ZELVYN_API_KEY"));
     var content = new StringContent("{\"profit\":250,\"investment\":1000}", Encoding.UTF8, "application/json");
         var response = await client.PostAsync("https://api-zelvyn.devs.surf/api/v1/business/roi", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());

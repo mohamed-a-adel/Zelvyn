@@ -4,11 +4,15 @@ Complete, copy-pasteable TypeScript requests for all 43 public Zelvyn API operat
 
 ## Setup
 
+No API key is needed for any request in this handbook. Every snippet is ready to run keyless on the anonymous rate limit.
+
+If you have a Zelvyn API key, add it to the request for a higher plan limit:
+
 ```bash
-export ZELVYN_API_KEY="zlv_live_..."   # create or receive a key first
+export ZELVYN_API_KEY="zlv_live_..."
 ```
 
-Every calculation request sends the key as `Authorization: Bearer $ZELVYN_API_KEY`. The health probe is public, but the examples below keep the header so the same client works for every operation.
+Send it as `Authorization: Bearer $ZELVYN_API_KEY` or `x-api-key: $ZELVYN_API_KEY`. Each snippet below includes the exact line to add, commented out. See [authentication](../authentication.md) and [contact support](https://zelvyn.devs.surf/support) to request a higher limit.
 
 Base URL: `https://api-zelvyn.devs.surf`
 
@@ -79,8 +83,9 @@ const response = await fetch(
   {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
   }
 );
@@ -109,8 +114,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[3,1,4,1,5]}),
   }
@@ -140,8 +146,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[10,20,30]}),
   }
@@ -171,8 +178,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[1,3,2,5,4]}),
   }
@@ -202,8 +210,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[3,1,4,1,5]}),
   }
@@ -233,8 +242,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[1,2,3,4],"percentile":75}),
   }
@@ -264,8 +274,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[3,1,4,1,5]}),
   }
@@ -295,8 +306,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[2,4,4,4,5,5,7,9]}),
   }
@@ -326,8 +338,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[10,20,30]}),
   }
@@ -357,8 +370,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[2,4,4,4,5,5,7,9]}),
   }
@@ -388,8 +402,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[0.1,0.2,0.3]}),
   }
@@ -419,8 +434,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"n":52,"r":5}),
   }
@@ -450,8 +466,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[100,4,5]}),
   }
@@ -481,8 +498,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"n":5}),
   }
@@ -512,8 +530,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"a":12,"b":18}),
   }
@@ -543,8 +562,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"a":4,"b":6}),
   }
@@ -574,8 +594,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"value":1}),
   }
@@ -605,8 +626,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"value":1000}),
   }
@@ -636,8 +658,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[2,3,4]}),
   }
@@ -667,8 +690,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"value":27,"degree":3}),
   }
@@ -698,8 +722,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"percentage":15,"value":240}),
   }
@@ -729,8 +754,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"from":80,"to":100}),
   }
@@ -760,8 +786,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"n":5,"r":2}),
   }
@@ -791,8 +818,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"base":2,"exponent":10}),
   }
@@ -822,8 +850,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"value":144}),
   }
@@ -853,8 +882,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"values":[10,3,4]}),
   }
@@ -884,8 +914,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"revenue":10000,"orders":200}),
   }
@@ -915,8 +946,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"fixedCosts":1000,"price":20,"variableCost":12}),
   }
@@ -946,8 +978,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"cost":5000,"customers":50}),
   }
@@ -977,8 +1010,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"beginValue":100,"endValue":121,"periods":2}),
   }
@@ -1008,8 +1042,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"churned":100,"starting":1000}),
   }
@@ -1039,8 +1074,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"averageOrderValue":50,"purchasesPerPeriod":12,"lifespanPeriods":3}),
   }
@@ -1070,8 +1106,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"conversions":50,"sessions":1000}),
   }
@@ -1101,8 +1138,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"cost":500,"conversions":25}),
   }
@@ -1132,8 +1170,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"cost":250,"clicks":100}),
   }
@@ -1163,8 +1202,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"cost":500,"impressions":100000}),
   }
@@ -1194,8 +1234,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"clicks":100,"impressions":10000}),
   }
@@ -1225,8 +1266,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"price":120,"cost":100}),
   }
@@ -1256,8 +1298,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"revenue":1000,"costs":600}),
   }
@@ -1287,8 +1330,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"revenue":1000,"costs":600}),
   }
@@ -1318,8 +1362,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"retained":900,"starting":1000}),
   }
@@ -1349,8 +1394,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"revenue":4000,"adSpend":1000}),
   }
@@ -1380,8 +1426,9 @@ const response = await fetch(
   {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
       "Content-Type": "application/json",
+      // Optional: add this line if you have a key (higher rate limit).
+      // Authorization: `Bearer ${process.env.ZELVYN_API_KEY}`,
     },
     body: JSON.stringify({"profit":250,"investment":1000}),
   }

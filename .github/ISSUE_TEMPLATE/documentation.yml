@@ -1,0 +1,60 @@
+name: Documentation problem
+description: Report a typo, broken link, unclear page, or an example that does not work.
+title: "docs: "
+labels: ["documentation", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the handbook. Please do **not** include live API keys, passwords, or personal data.
+        For a security problem, use the Security tab instead of this form.
+  - type: input
+    id: page
+    attributes:
+      label: Page or file
+      description: Link or path to the page that needs a fix.
+      placeholder: https://github.com/mohamed-a-adel/Zelvyn/blob/main/docs/endpoints/statistics-mean.md
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem is it?
+      options:
+        - Typo or grammar
+        - Broken link
+        - Unclear or missing explanation
+        - Example does not run
+        - Example does not match the live API
+        - Wrong status code or response shape
+        - Accessibility barrier
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+      description: Quote the current text or paste the failing snippet.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should it say or do?
+    validations:
+      required: true
+  - type: input
+    id: request-id
+    attributes:
+      label: Request id (optional)
+      description: If the live API behaved differently, paste `meta.requestId` from the response.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have not included a live API key, credential, or personal data.
+          required: true
+        - label: I searched existing issues and this is not a duplicate.
+          required: true
