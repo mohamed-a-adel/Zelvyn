@@ -1,18 +1,31 @@
-# Zelvyn API — public handbook
+<div align="center">
 
-[<img src="https://i.postimg.cc/rFQymy4T/zelvyn.png" alt="API" height="20" />](https://api-zelvyn.devs.surf)
-[![OpenAPI](https://img.shields.io/badge/OpenAPI-3.1-blue)](https://api-zelvyn.devs.surf/openapi.json)
+<img src="https://i.postimg.cc/rFQymy4T/zelvyn.png" alt="Zelvyn" height="56" />
 
-The **Zelvyn API** is a stateless calculation and analytics platform for mathematics, statistics and business metrics. Every request is a JSON object; every response uses one envelope with a `meta.requestId` correlation id. Calculations are never persisted.
+### Math. Data. Decisions.
 
-- Hosted documentation: <https://zelvyn.devs.surf/docs>
-- Public API: <https://api-zelvyn.devs.surf>
-- OpenAPI 3.1 document: <https://api-zelvyn.devs.surf/openapi.json>
-- Public website: <https://zelvyn.devs.surf>
+A stateless calculation and analytics API for mathematics, statistics and business metrics.
 
-## Authentication
+[![Website](https://img.shields.io/badge/website-zelvyn.devs.surf-0f172a?style=for-the-badge)](https://zelvyn.devs.surf)
+[![Docs](https://img.shields.io/badge/docs-read%20the%20handbook-2563eb?style=for-the-badge)](https://zelvyn.devs.surf/docs)
+[![API](https://img.shields.io/badge/API-api--zelvyn.devs.surf-16a34a?style=for-the-badge)](https://api-zelvyn.devs.surf/api/v1/health)
+[![OpenAPI](https://img.shields.io/badge/OpenAPI-3.1-7c3aed?style=for-the-badge)](https://api-zelvyn.devs.surf/openapi.json)
 
-**No API key is required.** Every calculation endpoint works keyless on the anonymous rate limit.
+</div>
+
+---
+
+Zelvyn accepts JSON, returns JSON, and never stores your calculation inputs. Every response shares one envelope with a `meta.requestId`, so a result can be traced end-to-end without a session. **No API key is required** for any calculation endpoint; keys exist only to raise limits.
+
+| | |
+| --- | --- |
+| **Public API** | <https://api-zelvyn.devs.surf> |
+| **Hosted documentation** | <https://zelvyn.devs.surf/docs> |
+| **OpenAPI 3.1 document** | <https://api-zelvyn.devs.surf/openapi.json> |
+| **Website** | <https://zelvyn.devs.surf> |
+| **Support** | <https://zelvyn.devs.surf/support> |
+
+## Quick start
 
 ```bash
 curl -sS https://api-zelvyn.devs.surf/api/v1/statistics/mean \
@@ -20,7 +33,35 @@ curl -sS https://api-zelvyn.devs.surf/api/v1/statistics/mean \
   -d '{"values":[10,20,30]}'
 ```
 
-If you have a Zelvyn API key, add it for a higher plan limit — it is always optional:
+```json
+{
+  "success": true,
+  "data": { "operation": "mean", "result": 20 },
+  "meta": {
+    "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+    "timestamp": "2026-01-15T12:00:00.000Z"
+  }
+}
+```
+
+Prefer a typed client? Jump straight to the [Python](docs/languages/python.md), [JavaScript](docs/languages/javascript.md), [TypeScript](docs/languages/typescript.md) or any of the [13 language guides](#pick-a-language).
+
+## Contents
+
+- [Authentication](#authentication)
+- [Endpoint catalog](#endpoint-catalog)
+- [Pick a language](#pick-a-language)
+- [Response envelope](#response-envelope)
+- [Conventions](#conventions)
+- [Documentation](#documentation)
+- [Community](#community)
+- [License](#license)
+
+## Authentication
+
+**Every calculation endpoint works keyless** and is covered by the anonymous rate limit. That is the public contract — no signup, token or header is needed to make the first request.
+
+If you hold a Zelvyn API key, attach it for the higher plan limit. It is always optional:
 
 ```bash
 curl -sS https://api-zelvyn.devs.surf/api/v1/statistics/mean \
@@ -29,17 +70,27 @@ curl -sS https://api-zelvyn.devs.surf/api/v1/statistics/mean \
   -d '{"values":[10,20,30]}'
 ```
 
-Send the key as `Authorization: Bearer <key>`, or as `x-api-key: <key>`. If both are present, `Authorization` wins. Keys are issued for a `LIVE` or `TEST` environment and a plan. To request a higher limit, [contact support](https://zelvyn.devs.surf/support).
+- Send the key as `Authorization: Bearer <key>` or `x-api-key: <key>`. If both are present, `Authorization` wins.
+- Keys are issued per `LIVE` or `TEST` environment and per plan.
+- An invalid, revoked or expired key still returns `401` — omit the header to stay on the anonymous limit.
+- Need a higher limit? [Contact support](https://zelvyn.devs.surf/support).
 
-> This repository documents the public calculation API. Account/session endpoints (`/api/v1/account/*`) are cookie- and CSRF-authenticated, are excluded from the public OpenAPI document, and are not needed to call any endpoint in this handbook.
+> This repository documents the public calculation API. Account and session endpoints (`/api/v1/account/*`) are cookie- and CSRF-authenticated, are excluded from the public OpenAPI document, and are never required to call an endpoint in this handbook.
 
-## All 43 requests
+## Endpoint catalog
+
+43 operations across four groups. Every operation has a dedicated page with request fields, constraints, a worked example and the error cases.
+
+### Health
 
 | Operation | Method | Path |
 | --- | --- | --- |
-| **Health** | | |
 | [Liveness / readiness probe](docs/endpoints/get-health.md) | `GET` | `/api/v1/health` |
-| **Statistics** | | |
+
+### Statistics
+
+| Operation | Method | Path |
+| --- | --- | --- |
 | [Maximum value](docs/endpoints/statistics-max.md) | `POST` | `/api/v1/statistics/max` |
 | [Arithmetic mean](docs/endpoints/statistics-mean.md) | `POST` | `/api/v1/statistics/mean` |
 | [Median](docs/endpoints/statistics-median.md) | `POST` | `/api/v1/statistics/median` |
@@ -49,7 +100,11 @@ Send the key as `Authorization: Bearer <key>`, or as `x-api-key: <key>`. If both
 | [Population standard deviation](docs/endpoints/statistics-standard-deviation.md) | `POST` | `/api/v1/statistics/standard-deviation` |
 | [Sum of a dataset](docs/endpoints/statistics-sum.md) | `POST` | `/api/v1/statistics/sum` |
 | [Population variance](docs/endpoints/statistics-variance.md) | `POST` | `/api/v1/statistics/variance` |
-| **Math** | | |
+
+### Mathematics
+
+| Operation | Method | Path |
+| --- | --- | --- |
 | [Add numbers](docs/endpoints/math-add.md) | `POST` | `/api/v1/math/add` |
 | [Combinations C(n, r)](docs/endpoints/math-combinations.md) | `POST` | `/api/v1/math/combinations` |
 | [Divide numbers (left to right)](docs/endpoints/math-divide.md) | `POST` | `/api/v1/math/divide` |
@@ -66,7 +121,11 @@ Send the key as `Authorization: Bearer <key>`, or as `x-api-key: <key>`. If both
 | [Raise a base to an exponent](docs/endpoints/math-power.md) | `POST` | `/api/v1/math/power` |
 | [Square root](docs/endpoints/math-sqrt.md) | `POST` | `/api/v1/math/sqrt` |
 | [Subtract numbers (left to right)](docs/endpoints/math-subtract.md) | `POST` | `/api/v1/math/subtract` |
-| **Business Analytics** | | |
+
+### Business analytics
+
+| Operation | Method | Path |
+| --- | --- | --- |
 | [Average order value AOV](docs/endpoints/business-aov.md) | `POST` | `/api/v1/business/aov` |
 | [Break-even volume (units)](docs/endpoints/business-break-even.md) | `POST` | `/api/v1/business/break-even` |
 | [Customer acquisition cost CAC](docs/endpoints/business-cac.md) | `POST` | `/api/v1/business/cac` |
@@ -87,9 +146,9 @@ Send the key as `Authorization: Bearer <key>`, or as `x-api-key: <key>`. If both
 
 ## Pick a language
 
-Every request is documented in all of these languages. Each language page contains all 43 operations in one place.
+Each page lists all 43 operations in one place, ready to copy into a project.
 
-| Language | Runtime | Complete examples |
+| Language | Runtime | Examples |
 | --- | --- | --- |
 | [cURL](docs/languages/curl.md) | Any shell (macOS, Linux, Windows) | All 43 requests |
 | [JavaScript](docs/languages/javascript.md) | Node.js 18+ or any modern browser | All 43 requests |
@@ -107,6 +166,8 @@ Every request is documented in all of these languages. Each language page contai
 
 ## Response envelope
 
+Every successful response returns data under `data` and correlation details under `meta`:
+
 ```json
 {
   "success": true,
@@ -118,7 +179,7 @@ Every request is documented in all of these languages. Each language page contai
 }
 ```
 
-Failures replace `data` with `error`:
+Failures replace `data` with `error` and keep the same `meta`:
 
 ```json
 {
@@ -135,6 +196,8 @@ Failures replace `data` with `error`:
 }
 ```
 
+See [Errors](docs/errors.md) for the full code list.
+
 ## Documentation
 
 - [Endpoint index](docs/endpoints/README.md)
@@ -143,7 +206,7 @@ Failures replace `data` with `error`:
 - [Rate limits and quotas](docs/rate-limits.md)
 - [Versioning and compatibility](docs/versioning.md)
 - [Language index](docs/languages/README.md)
-- [OpenAPI JSON](openapi.json) (live: https://api-zelvyn.devs.surf/openapi.json)
+- [OpenAPI JSON](openapi.json) · [live document](https://api-zelvyn.devs.surf/openapi.json)
 
 ## Conventions
 
@@ -168,4 +231,6 @@ Proprietary. See [LICENSE](LICENSE) and the terms published at <https://zelvyn.d
 
 ---
 
-Generated from the live OpenAPI document. Do not edit the endpoint or language pages by hand — regenerate them when the contract changes.
+<div align="center">
+<sub>Generated from the live OpenAPI document. Do not edit the endpoint or language pages by hand — regenerate them when the contract changes.</sub>
+</div>
