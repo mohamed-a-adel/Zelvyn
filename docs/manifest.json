@@ -1,0 +1,336 @@
+{
+  "generatedAt": "2026-10-30T01:36:59.796Z",
+  "openapi": "3.1.0",
+  "apiVersion": "0.1.0",
+  "baseUrl": "https://api-zelvyn.devs.surf",
+  "openapiUrl": "https://api-zelvyn.devs.surf/openapi.json",
+  "hostedDocs": "https://zelvyn.devs.surf/docs",
+  "requestCount": 43,
+  "languages": [
+    {
+      "id": "curl",
+      "label": "cURL",
+      "file": "docs/languages/curl.md"
+    },
+    {
+      "id": "javascript",
+      "label": "JavaScript",
+      "file": "docs/languages/javascript.md"
+    },
+    {
+      "id": "typescript",
+      "label": "TypeScript",
+      "file": "docs/languages/typescript.md"
+    },
+    {
+      "id": "python",
+      "label": "Python",
+      "file": "docs/languages/python.md"
+    },
+    {
+      "id": "php",
+      "label": "PHP",
+      "file": "docs/languages/php.md"
+    },
+    {
+      "id": "go",
+      "label": "Go",
+      "file": "docs/languages/go.md"
+    },
+    {
+      "id": "java",
+      "label": "Java",
+      "file": "docs/languages/java.md"
+    },
+    {
+      "id": "csharp",
+      "label": "C#",
+      "file": "docs/languages/csharp.md"
+    },
+    {
+      "id": "ruby",
+      "label": "Ruby",
+      "file": "docs/languages/ruby.md"
+    },
+    {
+      "id": "rust",
+      "label": "Rust",
+      "file": "docs/languages/rust.md"
+    },
+    {
+      "id": "kotlin",
+      "label": "Kotlin",
+      "file": "docs/languages/kotlin.md"
+    },
+    {
+      "id": "swift",
+      "label": "Swift",
+      "file": "docs/languages/swift.md"
+    },
+    {
+      "id": "dart",
+      "label": "Dart",
+      "file": "docs/languages/dart.md"
+    }
+  ],
+  "requests": [
+    {
+      "operationId": "getHealth",
+      "method": "GET",
+      "path": "/api/v1/health",
+      "reference": "docs/endpoints/get-health.md"
+    },
+    {
+      "operationId": "statisticsMax",
+      "method": "POST",
+      "path": "/api/v1/statistics/max",
+      "reference": "docs/endpoints/statistics-max.md"
+    },
+    {
+      "operationId": "statisticsMean",
+      "method": "POST",
+      "path": "/api/v1/statistics/mean",
+      "reference": "docs/endpoints/statistics-mean.md"
+    },
+    {
+      "operationId": "statisticsMedian",
+      "method": "POST",
+      "path": "/api/v1/statistics/median",
+      "reference": "docs/endpoints/statistics-median.md"
+    },
+    {
+      "operationId": "statisticsMin",
+      "method": "POST",
+      "path": "/api/v1/statistics/min",
+      "reference": "docs/endpoints/statistics-min.md"
+    },
+    {
+      "operationId": "statisticsPercentile",
+      "method": "POST",
+      "path": "/api/v1/statistics/percentile",
+      "reference": "docs/endpoints/statistics-percentile.md"
+    },
+    {
+      "operationId": "statisticsRange",
+      "method": "POST",
+      "path": "/api/v1/statistics/range",
+      "reference": "docs/endpoints/statistics-range.md"
+    },
+    {
+      "operationId": "statisticsStandardDeviation",
+      "method": "POST",
+      "path": "/api/v1/statistics/standard-deviation",
+      "reference": "docs/endpoints/statistics-standard-deviation.md"
+    },
+    {
+      "operationId": "statisticsSum",
+      "method": "POST",
+      "path": "/api/v1/statistics/sum",
+      "reference": "docs/endpoints/statistics-sum.md"
+    },
+    {
+      "operationId": "statisticsVariance",
+      "method": "POST",
+      "path": "/api/v1/statistics/variance",
+      "reference": "docs/endpoints/statistics-variance.md"
+    },
+    {
+      "operationId": "mathAdd",
+      "method": "POST",
+      "path": "/api/v1/math/add",
+      "reference": "docs/endpoints/math-add.md"
+    },
+    {
+      "operationId": "mathCombinations",
+      "method": "POST",
+      "path": "/api/v1/math/combinations",
+      "reference": "docs/endpoints/math-combinations.md"
+    },
+    {
+      "operationId": "mathDivide",
+      "method": "POST",
+      "path": "/api/v1/math/divide",
+      "reference": "docs/endpoints/math-divide.md"
+    },
+    {
+      "operationId": "mathFactorial",
+      "method": "POST",
+      "path": "/api/v1/math/factorial",
+      "reference": "docs/endpoints/math-factorial.md"
+    },
+    {
+      "operationId": "mathGcd",
+      "method": "POST",
+      "path": "/api/v1/math/gcd",
+      "reference": "docs/endpoints/math-gcd.md"
+    },
+    {
+      "operationId": "mathLcm",
+      "method": "POST",
+      "path": "/api/v1/math/lcm",
+      "reference": "docs/endpoints/math-lcm.md"
+    },
+    {
+      "operationId": "mathLn",
+      "method": "POST",
+      "path": "/api/v1/math/ln",
+      "reference": "docs/endpoints/math-ln.md"
+    },
+    {
+      "operationId": "mathLog",
+      "method": "POST",
+      "path": "/api/v1/math/log",
+      "reference": "docs/endpoints/math-log.md"
+    },
+    {
+      "operationId": "mathMultiply",
+      "method": "POST",
+      "path": "/api/v1/math/multiply",
+      "reference": "docs/endpoints/math-multiply.md"
+    },
+    {
+      "operationId": "mathNthRoot",
+      "method": "POST",
+      "path": "/api/v1/math/nth-root",
+      "reference": "docs/endpoints/math-nth-root.md"
+    },
+    {
+      "operationId": "mathPercentOf",
+      "method": "POST",
+      "path": "/api/v1/math/percent-of",
+      "reference": "docs/endpoints/math-percent-of.md"
+    },
+    {
+      "operationId": "mathPercentageChange",
+      "method": "POST",
+      "path": "/api/v1/math/percentage-change",
+      "reference": "docs/endpoints/math-percentage-change.md"
+    },
+    {
+      "operationId": "mathPermutations",
+      "method": "POST",
+      "path": "/api/v1/math/permutations",
+      "reference": "docs/endpoints/math-permutations.md"
+    },
+    {
+      "operationId": "mathPower",
+      "method": "POST",
+      "path": "/api/v1/math/power",
+      "reference": "docs/endpoints/math-power.md"
+    },
+    {
+      "operationId": "mathSqrt",
+      "method": "POST",
+      "path": "/api/v1/math/sqrt",
+      "reference": "docs/endpoints/math-sqrt.md"
+    },
+    {
+      "operationId": "mathSubtract",
+      "method": "POST",
+      "path": "/api/v1/math/subtract",
+      "reference": "docs/endpoints/math-subtract.md"
+    },
+    {
+      "operationId": "businessAov",
+      "method": "POST",
+      "path": "/api/v1/business/aov",
+      "reference": "docs/endpoints/business-aov.md"
+    },
+    {
+      "operationId": "businessBreakEven",
+      "method": "POST",
+      "path": "/api/v1/business/break-even",
+      "reference": "docs/endpoints/business-break-even.md"
+    },
+    {
+      "operationId": "businessCac",
+      "method": "POST",
+      "path": "/api/v1/business/cac",
+      "reference": "docs/endpoints/business-cac.md"
+    },
+    {
+      "operationId": "businessCagr",
+      "method": "POST",
+      "path": "/api/v1/business/cagr",
+      "reference": "docs/endpoints/business-cagr.md"
+    },
+    {
+      "operationId": "businessChurnRate",
+      "method": "POST",
+      "path": "/api/v1/business/churn-rate",
+      "reference": "docs/endpoints/business-churn-rate.md"
+    },
+    {
+      "operationId": "businessClv",
+      "method": "POST",
+      "path": "/api/v1/business/clv",
+      "reference": "docs/endpoints/business-clv.md"
+    },
+    {
+      "operationId": "businessConversionRate",
+      "method": "POST",
+      "path": "/api/v1/business/conversion-rate",
+      "reference": "docs/endpoints/business-conversion-rate.md"
+    },
+    {
+      "operationId": "businessCpa",
+      "method": "POST",
+      "path": "/api/v1/business/cpa",
+      "reference": "docs/endpoints/business-cpa.md"
+    },
+    {
+      "operationId": "businessCpc",
+      "method": "POST",
+      "path": "/api/v1/business/cpc",
+      "reference": "docs/endpoints/business-cpc.md"
+    },
+    {
+      "operationId": "businessCpm",
+      "method": "POST",
+      "path": "/api/v1/business/cpm",
+      "reference": "docs/endpoints/business-cpm.md"
+    },
+    {
+      "operationId": "businessCtr",
+      "method": "POST",
+      "path": "/api/v1/business/ctr",
+      "reference": "docs/endpoints/business-ctr.md"
+    },
+    {
+      "operationId": "businessMarkup",
+      "method": "POST",
+      "path": "/api/v1/business/markup",
+      "reference": "docs/endpoints/business-markup.md"
+    },
+    {
+      "operationId": "businessProfit",
+      "method": "POST",
+      "path": "/api/v1/business/profit",
+      "reference": "docs/endpoints/business-profit.md"
+    },
+    {
+      "operationId": "businessProfitMargin",
+      "method": "POST",
+      "path": "/api/v1/business/profit-margin",
+      "reference": "docs/endpoints/business-profit-margin.md"
+    },
+    {
+      "operationId": "businessRetentionRate",
+      "method": "POST",
+      "path": "/api/v1/business/retention-rate",
+      "reference": "docs/endpoints/business-retention-rate.md"
+    },
+    {
+      "operationId": "businessRoas",
+      "method": "POST",
+      "path": "/api/v1/business/roas",
+      "reference": "docs/endpoints/business-roas.md"
+    },
+    {
+      "operationId": "businessRoi",
+      "method": "POST",
+      "path": "/api/v1/business/roi",
+      "reference": "docs/endpoints/business-roi.md"
+    }
+  ]
+}

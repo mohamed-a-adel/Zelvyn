@@ -1,0 +1,2512 @@
+[
+  {
+    "operationId": "getHealth",
+    "method": "GET",
+    "path": "/api/v1/health",
+    "summary": "Liveness / readiness probe",
+    "description": "Stateless liveness/readiness probe: no database, dependencies, or external calls. Use it to verify reachability and read the running service/API versions.",
+    "tag": "Health",
+    "authentication": "public",
+    "requestExample": null,
+    "responseExample": {
+      "success": true,
+      "data": {
+        "status": "ok",
+        "service": "zelvyn-api",
+        "apiVersion": "v1",
+        "version": "0.1.0",
+        "environment": "production"
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": null,
+    "reference": "docs/endpoints/get-health.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-getHealth",
+      "javascript": "docs/languages/javascript.md#op-getHealth",
+      "typescript": "docs/languages/typescript.md#op-getHealth",
+      "python": "docs/languages/python.md#op-getHealth",
+      "php": "docs/languages/php.md#op-getHealth",
+      "go": "docs/languages/go.md#op-getHealth",
+      "java": "docs/languages/java.md#op-getHealth",
+      "csharp": "docs/languages/csharp.md#op-getHealth",
+      "ruby": "docs/languages/ruby.md#op-getHealth",
+      "rust": "docs/languages/rust.md#op-getHealth",
+      "kotlin": "docs/languages/kotlin.md#op-getHealth",
+      "swift": "docs/languages/swift.md#op-getHealth",
+      "dart": "docs/languages/dart.md#op-getHealth"
+    }
+  },
+  {
+    "operationId": "statisticsMax",
+    "method": "POST",
+    "path": "/api/v1/statistics/max",
+    "summary": "Maximum value",
+    "description": "Returns the largest value in the dataset. Accepts 1–10,000 finite numbers.",
+    "tag": "Statistics",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        3,
+        1,
+        4,
+        1,
+        5
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "max",
+        "result": 5
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/statistics-max.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-statisticsMax",
+      "javascript": "docs/languages/javascript.md#op-statisticsMax",
+      "typescript": "docs/languages/typescript.md#op-statisticsMax",
+      "python": "docs/languages/python.md#op-statisticsMax",
+      "php": "docs/languages/php.md#op-statisticsMax",
+      "go": "docs/languages/go.md#op-statisticsMax",
+      "java": "docs/languages/java.md#op-statisticsMax",
+      "csharp": "docs/languages/csharp.md#op-statisticsMax",
+      "ruby": "docs/languages/ruby.md#op-statisticsMax",
+      "rust": "docs/languages/rust.md#op-statisticsMax",
+      "kotlin": "docs/languages/kotlin.md#op-statisticsMax",
+      "swift": "docs/languages/swift.md#op-statisticsMax",
+      "dart": "docs/languages/dart.md#op-statisticsMax"
+    }
+  },
+  {
+    "operationId": "statisticsMean",
+    "method": "POST",
+    "path": "/api/v1/statistics/mean",
+    "summary": "Arithmetic mean",
+    "description": "Returns the arithmetic mean of `values` (Σ xᵢ / n). Uses Neumaier compensated summation, so datasets with widely varying magnitudes keep low-order digits. Accepts 1–10,000 finite numbers.",
+    "tag": "Statistics",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        10,
+        20,
+        30
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "mean",
+        "result": 20
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/statistics-mean.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-statisticsMean",
+      "javascript": "docs/languages/javascript.md#op-statisticsMean",
+      "typescript": "docs/languages/typescript.md#op-statisticsMean",
+      "python": "docs/languages/python.md#op-statisticsMean",
+      "php": "docs/languages/php.md#op-statisticsMean",
+      "go": "docs/languages/go.md#op-statisticsMean",
+      "java": "docs/languages/java.md#op-statisticsMean",
+      "csharp": "docs/languages/csharp.md#op-statisticsMean",
+      "ruby": "docs/languages/ruby.md#op-statisticsMean",
+      "rust": "docs/languages/rust.md#op-statisticsMean",
+      "kotlin": "docs/languages/kotlin.md#op-statisticsMean",
+      "swift": "docs/languages/swift.md#op-statisticsMean",
+      "dart": "docs/languages/dart.md#op-statisticsMean"
+    }
+  },
+  {
+    "operationId": "statisticsMedian",
+    "method": "POST",
+    "path": "/api/v1/statistics/median",
+    "summary": "Median",
+    "description": "Returns the middle value of the sorted dataset, or the mean of the two middle values when the count is even. Accepts 1–10,000 finite numbers.",
+    "tag": "Statistics",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        1,
+        3,
+        2,
+        5,
+        4
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "median",
+        "result": 3
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/statistics-median.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-statisticsMedian",
+      "javascript": "docs/languages/javascript.md#op-statisticsMedian",
+      "typescript": "docs/languages/typescript.md#op-statisticsMedian",
+      "python": "docs/languages/python.md#op-statisticsMedian",
+      "php": "docs/languages/php.md#op-statisticsMedian",
+      "go": "docs/languages/go.md#op-statisticsMedian",
+      "java": "docs/languages/java.md#op-statisticsMedian",
+      "csharp": "docs/languages/csharp.md#op-statisticsMedian",
+      "ruby": "docs/languages/ruby.md#op-statisticsMedian",
+      "rust": "docs/languages/rust.md#op-statisticsMedian",
+      "kotlin": "docs/languages/kotlin.md#op-statisticsMedian",
+      "swift": "docs/languages/swift.md#op-statisticsMedian",
+      "dart": "docs/languages/dart.md#op-statisticsMedian"
+    }
+  },
+  {
+    "operationId": "statisticsMin",
+    "method": "POST",
+    "path": "/api/v1/statistics/min",
+    "summary": "Minimum value",
+    "description": "Returns the smallest value in the dataset. Accepts 1–10,000 finite numbers.",
+    "tag": "Statistics",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        3,
+        1,
+        4,
+        1,
+        5
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "min",
+        "result": 1
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/statistics-min.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-statisticsMin",
+      "javascript": "docs/languages/javascript.md#op-statisticsMin",
+      "typescript": "docs/languages/typescript.md#op-statisticsMin",
+      "python": "docs/languages/python.md#op-statisticsMin",
+      "php": "docs/languages/php.md#op-statisticsMin",
+      "go": "docs/languages/go.md#op-statisticsMin",
+      "java": "docs/languages/java.md#op-statisticsMin",
+      "csharp": "docs/languages/csharp.md#op-statisticsMin",
+      "ruby": "docs/languages/ruby.md#op-statisticsMin",
+      "rust": "docs/languages/rust.md#op-statisticsMin",
+      "kotlin": "docs/languages/kotlin.md#op-statisticsMin",
+      "swift": "docs/languages/swift.md#op-statisticsMin",
+      "dart": "docs/languages/dart.md#op-statisticsMin"
+    }
+  },
+  {
+    "operationId": "statisticsPercentile",
+    "method": "POST",
+    "path": "/api/v1/statistics/percentile",
+    "summary": "Percentile (linear interpolation)",
+    "description": "Returns the `percentile`-th percentile of `values` using linear interpolation between closest ranks (the NumPy/`PERCENTILE` inclusive definition). `percentile` is a finite number in [0, 100]; 0 is the minimum and 100 is the maximum. Accepts 1–10,000 finite numbers.",
+    "tag": "Statistics",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "percentile": 75
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "percentile",
+        "result": 3.25
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "percentile": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "values",
+        "percentile"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/statistics-percentile.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-statisticsPercentile",
+      "javascript": "docs/languages/javascript.md#op-statisticsPercentile",
+      "typescript": "docs/languages/typescript.md#op-statisticsPercentile",
+      "python": "docs/languages/python.md#op-statisticsPercentile",
+      "php": "docs/languages/php.md#op-statisticsPercentile",
+      "go": "docs/languages/go.md#op-statisticsPercentile",
+      "java": "docs/languages/java.md#op-statisticsPercentile",
+      "csharp": "docs/languages/csharp.md#op-statisticsPercentile",
+      "ruby": "docs/languages/ruby.md#op-statisticsPercentile",
+      "rust": "docs/languages/rust.md#op-statisticsPercentile",
+      "kotlin": "docs/languages/kotlin.md#op-statisticsPercentile",
+      "swift": "docs/languages/swift.md#op-statisticsPercentile",
+      "dart": "docs/languages/dart.md#op-statisticsPercentile"
+    }
+  },
+  {
+    "operationId": "statisticsRange",
+    "method": "POST",
+    "path": "/api/v1/statistics/range",
+    "summary": "Range (max − min)",
+    "description": "Returns `max − min`, the spread of the dataset. Non-negative by construction. Accepts 1–10,000 finite numbers.",
+    "tag": "Statistics",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        3,
+        1,
+        4,
+        1,
+        5
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "range",
+        "result": 4
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/statistics-range.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-statisticsRange",
+      "javascript": "docs/languages/javascript.md#op-statisticsRange",
+      "typescript": "docs/languages/typescript.md#op-statisticsRange",
+      "python": "docs/languages/python.md#op-statisticsRange",
+      "php": "docs/languages/php.md#op-statisticsRange",
+      "go": "docs/languages/go.md#op-statisticsRange",
+      "java": "docs/languages/java.md#op-statisticsRange",
+      "csharp": "docs/languages/csharp.md#op-statisticsRange",
+      "ruby": "docs/languages/ruby.md#op-statisticsRange",
+      "rust": "docs/languages/rust.md#op-statisticsRange",
+      "kotlin": "docs/languages/kotlin.md#op-statisticsRange",
+      "swift": "docs/languages/swift.md#op-statisticsRange",
+      "dart": "docs/languages/dart.md#op-statisticsRange"
+    }
+  },
+  {
+    "operationId": "statisticsStandardDeviation",
+    "method": "POST",
+    "path": "/api/v1/statistics/standard-deviation",
+    "summary": "Population standard deviation",
+    "description": "Returns the population standard deviation σ, the square root of the population variance (divided by n). Non-negative; accepts 1–10,000 finite numbers.",
+    "tag": "Statistics",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        2,
+        4,
+        4,
+        4,
+        5,
+        5,
+        7,
+        9
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "standard-deviation",
+        "result": 2
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/statistics-standard-deviation.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-statisticsStandardDeviation",
+      "javascript": "docs/languages/javascript.md#op-statisticsStandardDeviation",
+      "typescript": "docs/languages/typescript.md#op-statisticsStandardDeviation",
+      "python": "docs/languages/python.md#op-statisticsStandardDeviation",
+      "php": "docs/languages/php.md#op-statisticsStandardDeviation",
+      "go": "docs/languages/go.md#op-statisticsStandardDeviation",
+      "java": "docs/languages/java.md#op-statisticsStandardDeviation",
+      "csharp": "docs/languages/csharp.md#op-statisticsStandardDeviation",
+      "ruby": "docs/languages/ruby.md#op-statisticsStandardDeviation",
+      "rust": "docs/languages/rust.md#op-statisticsStandardDeviation",
+      "kotlin": "docs/languages/kotlin.md#op-statisticsStandardDeviation",
+      "swift": "docs/languages/swift.md#op-statisticsStandardDeviation",
+      "dart": "docs/languages/dart.md#op-statisticsStandardDeviation"
+    }
+  },
+  {
+    "operationId": "statisticsSum",
+    "method": "POST",
+    "path": "/api/v1/statistics/sum",
+    "summary": "Sum of a dataset",
+    "description": "Returns the sum of `values` (Σ xᵢ), decimal-exact. Equivalent to `/api/v1/math/add` for numeric arrays. Accepts 1–10,000 finite numbers.",
+    "tag": "Statistics",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        10,
+        20,
+        30
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "sum",
+        "result": 60
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/statistics-sum.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-statisticsSum",
+      "javascript": "docs/languages/javascript.md#op-statisticsSum",
+      "typescript": "docs/languages/typescript.md#op-statisticsSum",
+      "python": "docs/languages/python.md#op-statisticsSum",
+      "php": "docs/languages/php.md#op-statisticsSum",
+      "go": "docs/languages/go.md#op-statisticsSum",
+      "java": "docs/languages/java.md#op-statisticsSum",
+      "csharp": "docs/languages/csharp.md#op-statisticsSum",
+      "ruby": "docs/languages/ruby.md#op-statisticsSum",
+      "rust": "docs/languages/rust.md#op-statisticsSum",
+      "kotlin": "docs/languages/kotlin.md#op-statisticsSum",
+      "swift": "docs/languages/swift.md#op-statisticsSum",
+      "dart": "docs/languages/dart.md#op-statisticsSum"
+    }
+  },
+  {
+    "operationId": "statisticsVariance",
+    "method": "POST",
+    "path": "/api/v1/statistics/variance",
+    "summary": "Population variance",
+    "description": "Returns the population variance σ² = (Σ (xᵢ − μ)²) / n (divided by n, not n−1). Decimal-exact two-pass computation. Non-negative; accepts 1–10,000 finite numbers.",
+    "tag": "Statistics",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        2,
+        4,
+        4,
+        4,
+        5,
+        5,
+        7,
+        9
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "variance",
+        "result": 4
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/statistics-variance.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-statisticsVariance",
+      "javascript": "docs/languages/javascript.md#op-statisticsVariance",
+      "typescript": "docs/languages/typescript.md#op-statisticsVariance",
+      "python": "docs/languages/python.md#op-statisticsVariance",
+      "php": "docs/languages/php.md#op-statisticsVariance",
+      "go": "docs/languages/go.md#op-statisticsVariance",
+      "java": "docs/languages/java.md#op-statisticsVariance",
+      "csharp": "docs/languages/csharp.md#op-statisticsVariance",
+      "ruby": "docs/languages/ruby.md#op-statisticsVariance",
+      "rust": "docs/languages/rust.md#op-statisticsVariance",
+      "kotlin": "docs/languages/kotlin.md#op-statisticsVariance",
+      "swift": "docs/languages/swift.md#op-statisticsVariance",
+      "dart": "docs/languages/dart.md#op-statisticsVariance"
+    }
+  },
+  {
+    "operationId": "mathAdd",
+    "method": "POST",
+    "path": "/api/v1/math/add",
+    "summary": "Add numbers",
+    "description": "Returns the sum of `values` (Σ valuesᵢ). Decimal-exact internally (40 significant digits), so `[0.1, 0.2]` returns `0.3`. Accepts 1–10,000 finite numbers; negatives and zero are allowed.",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        0.1,
+        0.2,
+        0.3
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "add",
+        "result": 0.6
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-add.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathAdd",
+      "javascript": "docs/languages/javascript.md#op-mathAdd",
+      "typescript": "docs/languages/typescript.md#op-mathAdd",
+      "python": "docs/languages/python.md#op-mathAdd",
+      "php": "docs/languages/php.md#op-mathAdd",
+      "go": "docs/languages/go.md#op-mathAdd",
+      "java": "docs/languages/java.md#op-mathAdd",
+      "csharp": "docs/languages/csharp.md#op-mathAdd",
+      "ruby": "docs/languages/ruby.md#op-mathAdd",
+      "rust": "docs/languages/rust.md#op-mathAdd",
+      "kotlin": "docs/languages/kotlin.md#op-mathAdd",
+      "swift": "docs/languages/swift.md#op-mathAdd",
+      "dart": "docs/languages/dart.md#op-mathAdd"
+    }
+  },
+  {
+    "operationId": "mathCombinations",
+    "method": "POST",
+    "path": "/api/v1/math/combinations",
+    "summary": "Combinations C(n, r)",
+    "description": "Returns the number of unordered selections `C(n, r) = n! / (r! (n − r)!)`. `n` and `r` are integers from 0 to 1,000 and the contract requires `r ≤ n`. Exact integer results beyond `Number.MAX_SAFE_INTEGER` are returned as decimal strings and are never rounded.",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "n": 52,
+      "r": 5
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "combinations",
+        "result": 2598960
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "n": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "r": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      },
+      "required": [
+        "n",
+        "r"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-combinations.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathCombinations",
+      "javascript": "docs/languages/javascript.md#op-mathCombinations",
+      "typescript": "docs/languages/typescript.md#op-mathCombinations",
+      "python": "docs/languages/python.md#op-mathCombinations",
+      "php": "docs/languages/php.md#op-mathCombinations",
+      "go": "docs/languages/go.md#op-mathCombinations",
+      "java": "docs/languages/java.md#op-mathCombinations",
+      "csharp": "docs/languages/csharp.md#op-mathCombinations",
+      "ruby": "docs/languages/ruby.md#op-mathCombinations",
+      "rust": "docs/languages/rust.md#op-mathCombinations",
+      "kotlin": "docs/languages/kotlin.md#op-mathCombinations",
+      "swift": "docs/languages/swift.md#op-mathCombinations",
+      "dart": "docs/languages/dart.md#op-mathCombinations"
+    }
+  },
+  {
+    "operationId": "mathDivide",
+    "method": "POST",
+    "path": "/api/v1/math/divide",
+    "summary": "Divide numbers (left to right)",
+    "description": "Returns `values₀ ÷ values₁ ÷ values₂ ÷ …`, evaluated strictly left to right. Requires at least 2 finite values. A zero divisor is a `DIVISION_BY_ZERO` domain error (HTTP 422), not a validation error.",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        100,
+        4,
+        5
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "divide",
+        "result": 5
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 2,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-divide.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathDivide",
+      "javascript": "docs/languages/javascript.md#op-mathDivide",
+      "typescript": "docs/languages/typescript.md#op-mathDivide",
+      "python": "docs/languages/python.md#op-mathDivide",
+      "php": "docs/languages/php.md#op-mathDivide",
+      "go": "docs/languages/go.md#op-mathDivide",
+      "java": "docs/languages/java.md#op-mathDivide",
+      "csharp": "docs/languages/csharp.md#op-mathDivide",
+      "ruby": "docs/languages/ruby.md#op-mathDivide",
+      "rust": "docs/languages/rust.md#op-mathDivide",
+      "kotlin": "docs/languages/kotlin.md#op-mathDivide",
+      "swift": "docs/languages/swift.md#op-mathDivide",
+      "dart": "docs/languages/dart.md#op-mathDivide"
+    }
+  },
+  {
+    "operationId": "mathFactorial",
+    "method": "POST",
+    "path": "/api/v1/math/factorial",
+    "summary": "Factorial",
+    "description": "Returns `n!` for an integer n from 0 to 1,000 (`0! = 1`). Exact integer results beyond `Number.MAX_SAFE_INTEGER` are returned as decimal strings and are never rounded.",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "n": 5
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "factorial",
+        "result": 120
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "n": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      },
+      "required": [
+        "n"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-factorial.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathFactorial",
+      "javascript": "docs/languages/javascript.md#op-mathFactorial",
+      "typescript": "docs/languages/typescript.md#op-mathFactorial",
+      "python": "docs/languages/python.md#op-mathFactorial",
+      "php": "docs/languages/php.md#op-mathFactorial",
+      "go": "docs/languages/go.md#op-mathFactorial",
+      "java": "docs/languages/java.md#op-mathFactorial",
+      "csharp": "docs/languages/csharp.md#op-mathFactorial",
+      "ruby": "docs/languages/ruby.md#op-mathFactorial",
+      "rust": "docs/languages/rust.md#op-mathFactorial",
+      "kotlin": "docs/languages/kotlin.md#op-mathFactorial",
+      "swift": "docs/languages/swift.md#op-mathFactorial",
+      "dart": "docs/languages/dart.md#op-mathFactorial"
+    }
+  },
+  {
+    "operationId": "mathGcd",
+    "method": "POST",
+    "path": "/api/v1/math/gcd",
+    "summary": "Greatest common divisor",
+    "description": "Returns the greatest common divisor of two integers, sign-independently. `gcd(0, b) = |b|`; `gcd(0, 0)` yields `UNDEFINED_RESULT` (HTTP 422). Both inputs must be safe integers.",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "a": 12,
+      "b": 18
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "gcd",
+        "result": 6
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        "b": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-gcd.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathGcd",
+      "javascript": "docs/languages/javascript.md#op-mathGcd",
+      "typescript": "docs/languages/typescript.md#op-mathGcd",
+      "python": "docs/languages/python.md#op-mathGcd",
+      "php": "docs/languages/php.md#op-mathGcd",
+      "go": "docs/languages/go.md#op-mathGcd",
+      "java": "docs/languages/java.md#op-mathGcd",
+      "csharp": "docs/languages/csharp.md#op-mathGcd",
+      "ruby": "docs/languages/ruby.md#op-mathGcd",
+      "rust": "docs/languages/rust.md#op-mathGcd",
+      "kotlin": "docs/languages/kotlin.md#op-mathGcd",
+      "swift": "docs/languages/swift.md#op-mathGcd",
+      "dart": "docs/languages/dart.md#op-mathGcd"
+    }
+  },
+  {
+    "operationId": "mathLcm",
+    "method": "POST",
+    "path": "/api/v1/math/lcm",
+    "summary": "Least common multiple",
+    "description": "Returns the least common multiple of two integers, sign-independently. `lcm(0, b) = 0`; `lcm(0, 0)` yields `UNDEFINED_RESULT` (HTTP 422). Both inputs must be safe integers.",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "a": 4,
+      "b": 6
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "lcm",
+        "result": 12
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        "b": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-lcm.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathLcm",
+      "javascript": "docs/languages/javascript.md#op-mathLcm",
+      "typescript": "docs/languages/typescript.md#op-mathLcm",
+      "python": "docs/languages/python.md#op-mathLcm",
+      "php": "docs/languages/php.md#op-mathLcm",
+      "go": "docs/languages/go.md#op-mathLcm",
+      "java": "docs/languages/java.md#op-mathLcm",
+      "csharp": "docs/languages/csharp.md#op-mathLcm",
+      "ruby": "docs/languages/ruby.md#op-mathLcm",
+      "rust": "docs/languages/rust.md#op-mathLcm",
+      "kotlin": "docs/languages/kotlin.md#op-mathLcm",
+      "swift": "docs/languages/swift.md#op-mathLcm",
+      "dart": "docs/languages/dart.md#op-mathLcm"
+    }
+  },
+  {
+    "operationId": "mathLn",
+    "method": "POST",
+    "path": "/api/v1/math/ln",
+    "summary": "Natural logarithm",
+    "description": "Returns the natural logarithm (base e). `value ≤ 0` yields `UNDEFINED_RESULT` (HTTP 422).",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "value": 1
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "ln",
+        "result": 0
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-ln.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathLn",
+      "javascript": "docs/languages/javascript.md#op-mathLn",
+      "typescript": "docs/languages/typescript.md#op-mathLn",
+      "python": "docs/languages/python.md#op-mathLn",
+      "php": "docs/languages/php.md#op-mathLn",
+      "go": "docs/languages/go.md#op-mathLn",
+      "java": "docs/languages/java.md#op-mathLn",
+      "csharp": "docs/languages/csharp.md#op-mathLn",
+      "ruby": "docs/languages/ruby.md#op-mathLn",
+      "rust": "docs/languages/rust.md#op-mathLn",
+      "kotlin": "docs/languages/kotlin.md#op-mathLn",
+      "swift": "docs/languages/swift.md#op-mathLn",
+      "dart": "docs/languages/dart.md#op-mathLn"
+    }
+  },
+  {
+    "operationId": "mathLog",
+    "method": "POST",
+    "path": "/api/v1/math/log",
+    "summary": "Logarithm to a base (default 10)",
+    "description": "Returns the logarithm of `value` to `base`. `base` is optional and defaults to 10. `value ≤ 0`, `base ≤ 0`, and `base = 1` yield `UNDEFINED_RESULT` (HTTP 422).",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "value": 1000
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "log",
+        "result": 3
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "base": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-log.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathLog",
+      "javascript": "docs/languages/javascript.md#op-mathLog",
+      "typescript": "docs/languages/typescript.md#op-mathLog",
+      "python": "docs/languages/python.md#op-mathLog",
+      "php": "docs/languages/php.md#op-mathLog",
+      "go": "docs/languages/go.md#op-mathLog",
+      "java": "docs/languages/java.md#op-mathLog",
+      "csharp": "docs/languages/csharp.md#op-mathLog",
+      "ruby": "docs/languages/ruby.md#op-mathLog",
+      "rust": "docs/languages/rust.md#op-mathLog",
+      "kotlin": "docs/languages/kotlin.md#op-mathLog",
+      "swift": "docs/languages/swift.md#op-mathLog",
+      "dart": "docs/languages/dart.md#op-mathLog"
+    }
+  },
+  {
+    "operationId": "mathMultiply",
+    "method": "POST",
+    "path": "/api/v1/math/multiply",
+    "summary": "Multiply numbers",
+    "description": "Returns the product of `values` (Π valuesᵢ). Decimal-exact internally. Accepts 1–10,000 finite numbers.",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        2,
+        3,
+        4
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "multiply",
+        "result": 24
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 1,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-multiply.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathMultiply",
+      "javascript": "docs/languages/javascript.md#op-mathMultiply",
+      "typescript": "docs/languages/typescript.md#op-mathMultiply",
+      "python": "docs/languages/python.md#op-mathMultiply",
+      "php": "docs/languages/php.md#op-mathMultiply",
+      "go": "docs/languages/go.md#op-mathMultiply",
+      "java": "docs/languages/java.md#op-mathMultiply",
+      "csharp": "docs/languages/csharp.md#op-mathMultiply",
+      "ruby": "docs/languages/ruby.md#op-mathMultiply",
+      "rust": "docs/languages/rust.md#op-mathMultiply",
+      "kotlin": "docs/languages/kotlin.md#op-mathMultiply",
+      "swift": "docs/languages/swift.md#op-mathMultiply",
+      "dart": "docs/languages/dart.md#op-mathMultiply"
+    }
+  },
+  {
+    "operationId": "mathNthRoot",
+    "method": "POST",
+    "path": "/api/v1/math/nth-root",
+    "summary": "N-th root",
+    "description": "Returns the principal real `degree`-th root of `value`. `degree` is an integer from 1 to 10,000. An even root of a negative value yields `UNDEFINED_RESULT` (422); odd roots of negatives return the negative real root.",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "value": 27,
+      "degree": 3
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "nth-root",
+        "result": 3
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "degree": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000
+        }
+      },
+      "required": [
+        "value",
+        "degree"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-nth-root.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathNthRoot",
+      "javascript": "docs/languages/javascript.md#op-mathNthRoot",
+      "typescript": "docs/languages/typescript.md#op-mathNthRoot",
+      "python": "docs/languages/python.md#op-mathNthRoot",
+      "php": "docs/languages/php.md#op-mathNthRoot",
+      "go": "docs/languages/go.md#op-mathNthRoot",
+      "java": "docs/languages/java.md#op-mathNthRoot",
+      "csharp": "docs/languages/csharp.md#op-mathNthRoot",
+      "ruby": "docs/languages/ruby.md#op-mathNthRoot",
+      "rust": "docs/languages/rust.md#op-mathNthRoot",
+      "kotlin": "docs/languages/kotlin.md#op-mathNthRoot",
+      "swift": "docs/languages/swift.md#op-mathNthRoot",
+      "dart": "docs/languages/dart.md#op-mathNthRoot"
+    }
+  },
+  {
+    "operationId": "mathPercentOf",
+    "method": "POST",
+    "path": "/api/v1/math/percent-of",
+    "summary": "Percent of a value",
+    "description": "Returns `(percentage / 100) × value`. Both inputs are finite numbers (negatives allowed).",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "percentage": 15,
+      "value": 240
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "percent-of",
+        "result": 36
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "percentage": {
+          "type": "number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "percentage",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-percent-of.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathPercentOf",
+      "javascript": "docs/languages/javascript.md#op-mathPercentOf",
+      "typescript": "docs/languages/typescript.md#op-mathPercentOf",
+      "python": "docs/languages/python.md#op-mathPercentOf",
+      "php": "docs/languages/php.md#op-mathPercentOf",
+      "go": "docs/languages/go.md#op-mathPercentOf",
+      "java": "docs/languages/java.md#op-mathPercentOf",
+      "csharp": "docs/languages/csharp.md#op-mathPercentOf",
+      "ruby": "docs/languages/ruby.md#op-mathPercentOf",
+      "rust": "docs/languages/rust.md#op-mathPercentOf",
+      "kotlin": "docs/languages/kotlin.md#op-mathPercentOf",
+      "swift": "docs/languages/swift.md#op-mathPercentOf",
+      "dart": "docs/languages/dart.md#op-mathPercentOf"
+    }
+  },
+  {
+    "operationId": "mathPercentageChange",
+    "method": "POST",
+    "path": "/api/v1/math/percentage-change",
+    "summary": "Percentage change between two values",
+    "description": "Returns `((to − from) / from) × 100` as percent points (so `25` means +25%). The signed `from` value is the denominator. `from = 0` has no defined relative change and yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "from": 80,
+      "to": 100
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "percentage-change",
+        "result": 25
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "number"
+        },
+        "to": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "from",
+        "to"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-percentage-change.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathPercentageChange",
+      "javascript": "docs/languages/javascript.md#op-mathPercentageChange",
+      "typescript": "docs/languages/typescript.md#op-mathPercentageChange",
+      "python": "docs/languages/python.md#op-mathPercentageChange",
+      "php": "docs/languages/php.md#op-mathPercentageChange",
+      "go": "docs/languages/go.md#op-mathPercentageChange",
+      "java": "docs/languages/java.md#op-mathPercentageChange",
+      "csharp": "docs/languages/csharp.md#op-mathPercentageChange",
+      "ruby": "docs/languages/ruby.md#op-mathPercentageChange",
+      "rust": "docs/languages/rust.md#op-mathPercentageChange",
+      "kotlin": "docs/languages/kotlin.md#op-mathPercentageChange",
+      "swift": "docs/languages/swift.md#op-mathPercentageChange",
+      "dart": "docs/languages/dart.md#op-mathPercentageChange"
+    }
+  },
+  {
+    "operationId": "mathPermutations",
+    "method": "POST",
+    "path": "/api/v1/math/permutations",
+    "summary": "Permutations P(n, r)",
+    "description": "Returns the number of ordered selections `P(n, r) = n! / (n − r)!`. `n` and `r` are integers from 0 to 1,000 and the contract requires `r ≤ n`. Exact integer results beyond `Number.MAX_SAFE_INTEGER` are returned as decimal strings and are never rounded.",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "n": 5,
+      "r": 2
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "permutations",
+        "result": 20
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "n": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "r": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      },
+      "required": [
+        "n",
+        "r"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-permutations.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathPermutations",
+      "javascript": "docs/languages/javascript.md#op-mathPermutations",
+      "typescript": "docs/languages/typescript.md#op-mathPermutations",
+      "python": "docs/languages/python.md#op-mathPermutations",
+      "php": "docs/languages/php.md#op-mathPermutations",
+      "go": "docs/languages/go.md#op-mathPermutations",
+      "java": "docs/languages/java.md#op-mathPermutations",
+      "csharp": "docs/languages/csharp.md#op-mathPermutations",
+      "ruby": "docs/languages/ruby.md#op-mathPermutations",
+      "rust": "docs/languages/rust.md#op-mathPermutations",
+      "kotlin": "docs/languages/kotlin.md#op-mathPermutations",
+      "swift": "docs/languages/swift.md#op-mathPermutations",
+      "dart": "docs/languages/dart.md#op-mathPermutations"
+    }
+  },
+  {
+    "operationId": "mathPower",
+    "method": "POST",
+    "path": "/api/v1/math/power",
+    "summary": "Raise a base to an exponent",
+    "description": "Returns `base^exponent`. `0^0 = 1` and `0^positive = 0` by convention; `0^negative` yields `DIVISION_BY_ZERO` (422); a negative base with a non-integer exponent yields `UNDEFINED_RESULT` (422); overflow/underflow yield `UNDEFINED_RESULT` (422).",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "base": 2,
+      "exponent": 10
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "power",
+        "result": 1024
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "number"
+        },
+        "exponent": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "base",
+        "exponent"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-power.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathPower",
+      "javascript": "docs/languages/javascript.md#op-mathPower",
+      "typescript": "docs/languages/typescript.md#op-mathPower",
+      "python": "docs/languages/python.md#op-mathPower",
+      "php": "docs/languages/php.md#op-mathPower",
+      "go": "docs/languages/go.md#op-mathPower",
+      "java": "docs/languages/java.md#op-mathPower",
+      "csharp": "docs/languages/csharp.md#op-mathPower",
+      "ruby": "docs/languages/ruby.md#op-mathPower",
+      "rust": "docs/languages/rust.md#op-mathPower",
+      "kotlin": "docs/languages/kotlin.md#op-mathPower",
+      "swift": "docs/languages/swift.md#op-mathPower",
+      "dart": "docs/languages/dart.md#op-mathPower"
+    }
+  },
+  {
+    "operationId": "mathSqrt",
+    "method": "POST",
+    "path": "/api/v1/math/sqrt",
+    "summary": "Square root",
+    "description": "Returns the principal (non-negative) square root. A negative input has no real square root and yields `UNDEFINED_RESULT` (HTTP 422).",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "value": 144
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "sqrt",
+        "result": 12
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-sqrt.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathSqrt",
+      "javascript": "docs/languages/javascript.md#op-mathSqrt",
+      "typescript": "docs/languages/typescript.md#op-mathSqrt",
+      "python": "docs/languages/python.md#op-mathSqrt",
+      "php": "docs/languages/php.md#op-mathSqrt",
+      "go": "docs/languages/go.md#op-mathSqrt",
+      "java": "docs/languages/java.md#op-mathSqrt",
+      "csharp": "docs/languages/csharp.md#op-mathSqrt",
+      "ruby": "docs/languages/ruby.md#op-mathSqrt",
+      "rust": "docs/languages/rust.md#op-mathSqrt",
+      "kotlin": "docs/languages/kotlin.md#op-mathSqrt",
+      "swift": "docs/languages/swift.md#op-mathSqrt",
+      "dart": "docs/languages/dart.md#op-mathSqrt"
+    }
+  },
+  {
+    "operationId": "mathSubtract",
+    "method": "POST",
+    "path": "/api/v1/math/subtract",
+    "summary": "Subtract numbers (left to right)",
+    "description": "Returns `values₀ − values₁ − values₂ − …`, evaluated strictly left to right (the array is the expression). Requires at least two finite values.",
+    "tag": "Math",
+    "authentication": "api-key",
+    "requestExample": {
+      "values": [
+        10,
+        3,
+        4
+      ]
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "subtract",
+        "result": 3
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "minItems": 2,
+          "maxItems": 10000,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/math-subtract.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-mathSubtract",
+      "javascript": "docs/languages/javascript.md#op-mathSubtract",
+      "typescript": "docs/languages/typescript.md#op-mathSubtract",
+      "python": "docs/languages/python.md#op-mathSubtract",
+      "php": "docs/languages/php.md#op-mathSubtract",
+      "go": "docs/languages/go.md#op-mathSubtract",
+      "java": "docs/languages/java.md#op-mathSubtract",
+      "csharp": "docs/languages/csharp.md#op-mathSubtract",
+      "ruby": "docs/languages/ruby.md#op-mathSubtract",
+      "rust": "docs/languages/rust.md#op-mathSubtract",
+      "kotlin": "docs/languages/kotlin.md#op-mathSubtract",
+      "swift": "docs/languages/swift.md#op-mathSubtract",
+      "dart": "docs/languages/dart.md#op-mathSubtract"
+    }
+  },
+  {
+    "operationId": "businessAov",
+    "method": "POST",
+    "path": "/api/v1/business/aov",
+    "summary": "Average order value AOV",
+    "description": "Returns `revenue / orders`. `revenue` is signed; `orders` is non-negative. `orders = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "revenue": 10000,
+      "orders": 200
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "aov",
+        "result": 50
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "revenue": {
+          "type": "number"
+        },
+        "orders": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "revenue",
+        "orders"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-aov.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessAov",
+      "javascript": "docs/languages/javascript.md#op-businessAov",
+      "typescript": "docs/languages/typescript.md#op-businessAov",
+      "python": "docs/languages/python.md#op-businessAov",
+      "php": "docs/languages/php.md#op-businessAov",
+      "go": "docs/languages/go.md#op-businessAov",
+      "java": "docs/languages/java.md#op-businessAov",
+      "csharp": "docs/languages/csharp.md#op-businessAov",
+      "ruby": "docs/languages/ruby.md#op-businessAov",
+      "rust": "docs/languages/rust.md#op-businessAov",
+      "kotlin": "docs/languages/kotlin.md#op-businessAov",
+      "swift": "docs/languages/swift.md#op-businessAov",
+      "dart": "docs/languages/dart.md#op-businessAov"
+    }
+  },
+  {
+    "operationId": "businessBreakEven",
+    "method": "POST",
+    "path": "/api/v1/business/break-even",
+    "summary": "Break-even volume (units)",
+    "description": "Returns `fixedCosts / (price − variableCost)`, the number of units needed to cover fixed costs (may be fractional). A contribution of `price − variableCost ≤ 0` makes break-even unreachable and yields `UNDEFINED_RESULT` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "fixedCosts": 1000,
+      "price": 20,
+      "variableCost": 12
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "break-even",
+        "result": 125
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "fixedCosts": {
+          "type": "number"
+        },
+        "price": {
+          "type": "number"
+        },
+        "variableCost": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "fixedCosts",
+        "price",
+        "variableCost"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-break-even.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessBreakEven",
+      "javascript": "docs/languages/javascript.md#op-businessBreakEven",
+      "typescript": "docs/languages/typescript.md#op-businessBreakEven",
+      "python": "docs/languages/python.md#op-businessBreakEven",
+      "php": "docs/languages/php.md#op-businessBreakEven",
+      "go": "docs/languages/go.md#op-businessBreakEven",
+      "java": "docs/languages/java.md#op-businessBreakEven",
+      "csharp": "docs/languages/csharp.md#op-businessBreakEven",
+      "ruby": "docs/languages/ruby.md#op-businessBreakEven",
+      "rust": "docs/languages/rust.md#op-businessBreakEven",
+      "kotlin": "docs/languages/kotlin.md#op-businessBreakEven",
+      "swift": "docs/languages/swift.md#op-businessBreakEven",
+      "dart": "docs/languages/dart.md#op-businessBreakEven"
+    }
+  },
+  {
+    "operationId": "businessCac",
+    "method": "POST",
+    "path": "/api/v1/business/cac",
+    "summary": "Customer acquisition cost CAC",
+    "description": "Returns `cost / customers`. `customers = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "cost": 5000,
+      "customers": 50
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "cac",
+        "result": 100
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "customers": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "cost",
+        "customers"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-cac.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessCac",
+      "javascript": "docs/languages/javascript.md#op-businessCac",
+      "typescript": "docs/languages/typescript.md#op-businessCac",
+      "python": "docs/languages/python.md#op-businessCac",
+      "php": "docs/languages/php.md#op-businessCac",
+      "go": "docs/languages/go.md#op-businessCac",
+      "java": "docs/languages/java.md#op-businessCac",
+      "csharp": "docs/languages/csharp.md#op-businessCac",
+      "ruby": "docs/languages/ruby.md#op-businessCac",
+      "rust": "docs/languages/rust.md#op-businessCac",
+      "kotlin": "docs/languages/kotlin.md#op-businessCac",
+      "swift": "docs/languages/swift.md#op-businessCac",
+      "dart": "docs/languages/dart.md#op-businessCac"
+    }
+  },
+  {
+    "operationId": "businessCagr",
+    "method": "POST",
+    "path": "/api/v1/business/cagr",
+    "summary": "Compound annual growth rate CAGR (percent)",
+    "description": "Returns `((endValue / beginValue)^(1 / periods) − 1) × 100` as percent points. `periods` must be greater than 0. `beginValue ≤ 0` or `endValue < 0` yields `UNDEFINED_RESULT` (HTTP 422); overflow yields `UNDEFINED_RESULT`; a total loss returns `−100`.",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "beginValue": 100,
+      "endValue": 121,
+      "periods": 2
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "cagr",
+        "result": 10
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "beginValue": {
+          "type": "number"
+        },
+        "endValue": {
+          "type": "number"
+        },
+        "periods": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "beginValue",
+        "endValue",
+        "periods"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-cagr.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessCagr",
+      "javascript": "docs/languages/javascript.md#op-businessCagr",
+      "typescript": "docs/languages/typescript.md#op-businessCagr",
+      "python": "docs/languages/python.md#op-businessCagr",
+      "php": "docs/languages/php.md#op-businessCagr",
+      "go": "docs/languages/go.md#op-businessCagr",
+      "java": "docs/languages/java.md#op-businessCagr",
+      "csharp": "docs/languages/csharp.md#op-businessCagr",
+      "ruby": "docs/languages/ruby.md#op-businessCagr",
+      "rust": "docs/languages/rust.md#op-businessCagr",
+      "kotlin": "docs/languages/kotlin.md#op-businessCagr",
+      "swift": "docs/languages/swift.md#op-businessCagr",
+      "dart": "docs/languages/dart.md#op-businessCagr"
+    }
+  },
+  {
+    "operationId": "businessChurnRate",
+    "method": "POST",
+    "path": "/api/v1/business/churn-rate",
+    "summary": "Churn rate (percent)",
+    "description": "Returns `churned / starting × 100` as percent points. Counts are non-negative. `starting = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "churned": 100,
+      "starting": 1000
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "churn-rate",
+        "result": 10
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "churned": {
+          "type": "number",
+          "minimum": 0
+        },
+        "starting": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "churned",
+        "starting"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-churn-rate.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessChurnRate",
+      "javascript": "docs/languages/javascript.md#op-businessChurnRate",
+      "typescript": "docs/languages/typescript.md#op-businessChurnRate",
+      "python": "docs/languages/python.md#op-businessChurnRate",
+      "php": "docs/languages/php.md#op-businessChurnRate",
+      "go": "docs/languages/go.md#op-businessChurnRate",
+      "java": "docs/languages/java.md#op-businessChurnRate",
+      "csharp": "docs/languages/csharp.md#op-businessChurnRate",
+      "ruby": "docs/languages/ruby.md#op-businessChurnRate",
+      "rust": "docs/languages/rust.md#op-businessChurnRate",
+      "kotlin": "docs/languages/kotlin.md#op-businessChurnRate",
+      "swift": "docs/languages/swift.md#op-businessChurnRate",
+      "dart": "docs/languages/dart.md#op-businessChurnRate"
+    }
+  },
+  {
+    "operationId": "businessClv",
+    "method": "POST",
+    "path": "/api/v1/business/clv",
+    "summary": "Customer lifetime value CLV",
+    "description": "Returns `averageOrderValue × purchasesPerPeriod × lifespanPeriods`. No currency is assumed. Exact integer results beyond `Number.MAX_SAFE_INTEGER` are returned as decimal strings and are never rounded.",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "averageOrderValue": 50,
+      "purchasesPerPeriod": 12,
+      "lifespanPeriods": 3
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "clv",
+        "result": 1800
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "averageOrderValue": {
+          "type": "number"
+        },
+        "purchasesPerPeriod": {
+          "type": "number",
+          "minimum": 0
+        },
+        "lifespanPeriods": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "averageOrderValue",
+        "purchasesPerPeriod",
+        "lifespanPeriods"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-clv.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessClv",
+      "javascript": "docs/languages/javascript.md#op-businessClv",
+      "typescript": "docs/languages/typescript.md#op-businessClv",
+      "python": "docs/languages/python.md#op-businessClv",
+      "php": "docs/languages/php.md#op-businessClv",
+      "go": "docs/languages/go.md#op-businessClv",
+      "java": "docs/languages/java.md#op-businessClv",
+      "csharp": "docs/languages/csharp.md#op-businessClv",
+      "ruby": "docs/languages/ruby.md#op-businessClv",
+      "rust": "docs/languages/rust.md#op-businessClv",
+      "kotlin": "docs/languages/kotlin.md#op-businessClv",
+      "swift": "docs/languages/swift.md#op-businessClv",
+      "dart": "docs/languages/dart.md#op-businessClv"
+    }
+  },
+  {
+    "operationId": "businessConversionRate",
+    "method": "POST",
+    "path": "/api/v1/business/conversion-rate",
+    "summary": "Conversion rate (percent)",
+    "description": "Returns `conversions / sessions × 100` as percent points. Counts are non-negative. `sessions = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "conversions": 50,
+      "sessions": 1000
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "conversion-rate",
+        "result": 5
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "conversions": {
+          "type": "number",
+          "minimum": 0
+        },
+        "sessions": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "conversions",
+        "sessions"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-conversion-rate.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessConversionRate",
+      "javascript": "docs/languages/javascript.md#op-businessConversionRate",
+      "typescript": "docs/languages/typescript.md#op-businessConversionRate",
+      "python": "docs/languages/python.md#op-businessConversionRate",
+      "php": "docs/languages/php.md#op-businessConversionRate",
+      "go": "docs/languages/go.md#op-businessConversionRate",
+      "java": "docs/languages/java.md#op-businessConversionRate",
+      "csharp": "docs/languages/csharp.md#op-businessConversionRate",
+      "ruby": "docs/languages/ruby.md#op-businessConversionRate",
+      "rust": "docs/languages/rust.md#op-businessConversionRate",
+      "kotlin": "docs/languages/kotlin.md#op-businessConversionRate",
+      "swift": "docs/languages/swift.md#op-businessConversionRate",
+      "dart": "docs/languages/dart.md#op-businessConversionRate"
+    }
+  },
+  {
+    "operationId": "businessCpa",
+    "method": "POST",
+    "path": "/api/v1/business/cpa",
+    "summary": "Cost per acquisition CPA",
+    "description": "Returns `cost / conversions`. `conversions = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "cost": 500,
+      "conversions": 25
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "cpa",
+        "result": 20
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "conversions": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "cost",
+        "conversions"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-cpa.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessCpa",
+      "javascript": "docs/languages/javascript.md#op-businessCpa",
+      "typescript": "docs/languages/typescript.md#op-businessCpa",
+      "python": "docs/languages/python.md#op-businessCpa",
+      "php": "docs/languages/php.md#op-businessCpa",
+      "go": "docs/languages/go.md#op-businessCpa",
+      "java": "docs/languages/java.md#op-businessCpa",
+      "csharp": "docs/languages/csharp.md#op-businessCpa",
+      "ruby": "docs/languages/ruby.md#op-businessCpa",
+      "rust": "docs/languages/rust.md#op-businessCpa",
+      "kotlin": "docs/languages/kotlin.md#op-businessCpa",
+      "swift": "docs/languages/swift.md#op-businessCpa",
+      "dart": "docs/languages/dart.md#op-businessCpa"
+    }
+  },
+  {
+    "operationId": "businessCpc",
+    "method": "POST",
+    "path": "/api/v1/business/cpc",
+    "summary": "Cost per click CPC",
+    "description": "Returns `cost / clicks`. `cost` and `clicks` are non-negative. `clicks = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "cost": 250,
+      "clicks": 100
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "cpc",
+        "result": 2.5
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "clicks": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "cost",
+        "clicks"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-cpc.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessCpc",
+      "javascript": "docs/languages/javascript.md#op-businessCpc",
+      "typescript": "docs/languages/typescript.md#op-businessCpc",
+      "python": "docs/languages/python.md#op-businessCpc",
+      "php": "docs/languages/php.md#op-businessCpc",
+      "go": "docs/languages/go.md#op-businessCpc",
+      "java": "docs/languages/java.md#op-businessCpc",
+      "csharp": "docs/languages/csharp.md#op-businessCpc",
+      "ruby": "docs/languages/ruby.md#op-businessCpc",
+      "rust": "docs/languages/rust.md#op-businessCpc",
+      "kotlin": "docs/languages/kotlin.md#op-businessCpc",
+      "swift": "docs/languages/swift.md#op-businessCpc",
+      "dart": "docs/languages/dart.md#op-businessCpc"
+    }
+  },
+  {
+    "operationId": "businessCpm",
+    "method": "POST",
+    "path": "/api/v1/business/cpm",
+    "summary": "Cost per mille CPM",
+    "description": "Returns `cost / impressions × 1000` (cost per 1,000 impressions). `impressions = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "cost": 500,
+      "impressions": 100000
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "cpm",
+        "result": 5
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "impressions": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "cost",
+        "impressions"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-cpm.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessCpm",
+      "javascript": "docs/languages/javascript.md#op-businessCpm",
+      "typescript": "docs/languages/typescript.md#op-businessCpm",
+      "python": "docs/languages/python.md#op-businessCpm",
+      "php": "docs/languages/php.md#op-businessCpm",
+      "go": "docs/languages/go.md#op-businessCpm",
+      "java": "docs/languages/java.md#op-businessCpm",
+      "csharp": "docs/languages/csharp.md#op-businessCpm",
+      "ruby": "docs/languages/ruby.md#op-businessCpm",
+      "rust": "docs/languages/rust.md#op-businessCpm",
+      "kotlin": "docs/languages/kotlin.md#op-businessCpm",
+      "swift": "docs/languages/swift.md#op-businessCpm",
+      "dart": "docs/languages/dart.md#op-businessCpm"
+    }
+  },
+  {
+    "operationId": "businessCtr",
+    "method": "POST",
+    "path": "/api/v1/business/ctr",
+    "summary": "Click-through rate CTR (percent)",
+    "description": "Returns `clicks / impressions × 100` as percent points. Counts are non-negative. `impressions = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "clicks": 100,
+      "impressions": 10000
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "ctr",
+        "result": 1
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "clicks": {
+          "type": "number",
+          "minimum": 0
+        },
+        "impressions": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "clicks",
+        "impressions"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-ctr.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessCtr",
+      "javascript": "docs/languages/javascript.md#op-businessCtr",
+      "typescript": "docs/languages/typescript.md#op-businessCtr",
+      "python": "docs/languages/python.md#op-businessCtr",
+      "php": "docs/languages/php.md#op-businessCtr",
+      "go": "docs/languages/go.md#op-businessCtr",
+      "java": "docs/languages/java.md#op-businessCtr",
+      "csharp": "docs/languages/csharp.md#op-businessCtr",
+      "ruby": "docs/languages/ruby.md#op-businessCtr",
+      "rust": "docs/languages/rust.md#op-businessCtr",
+      "kotlin": "docs/languages/kotlin.md#op-businessCtr",
+      "swift": "docs/languages/swift.md#op-businessCtr",
+      "dart": "docs/languages/dart.md#op-businessCtr"
+    }
+  },
+  {
+    "operationId": "businessMarkup",
+    "method": "POST",
+    "path": "/api/v1/business/markup",
+    "summary": "Markup (percent)",
+    "description": "Returns `(price − cost) / cost × 100` as percent points. `cost = 0` yields `DIVISION_BY_ZERO` (HTTP 422). Distinct from margin, which is based on revenue/price.",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "price": 120,
+      "cost": 100
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "markup",
+        "result": 20
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "number"
+        },
+        "cost": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "price",
+        "cost"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-markup.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessMarkup",
+      "javascript": "docs/languages/javascript.md#op-businessMarkup",
+      "typescript": "docs/languages/typescript.md#op-businessMarkup",
+      "python": "docs/languages/python.md#op-businessMarkup",
+      "php": "docs/languages/php.md#op-businessMarkup",
+      "go": "docs/languages/go.md#op-businessMarkup",
+      "java": "docs/languages/java.md#op-businessMarkup",
+      "csharp": "docs/languages/csharp.md#op-businessMarkup",
+      "ruby": "docs/languages/ruby.md#op-businessMarkup",
+      "rust": "docs/languages/rust.md#op-businessMarkup",
+      "kotlin": "docs/languages/kotlin.md#op-businessMarkup",
+      "swift": "docs/languages/swift.md#op-businessMarkup",
+      "dart": "docs/languages/dart.md#op-businessMarkup"
+    }
+  },
+  {
+    "operationId": "businessProfit",
+    "method": "POST",
+    "path": "/api/v1/business/profit",
+    "summary": "Profit",
+    "description": "Returns `revenue − costs`. Monetary inputs are signed (negative results are meaningful losses).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "revenue": 1000,
+      "costs": 600
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "profit",
+        "result": 400
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "revenue": {
+          "type": "number"
+        },
+        "costs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "revenue",
+        "costs"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-profit.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessProfit",
+      "javascript": "docs/languages/javascript.md#op-businessProfit",
+      "typescript": "docs/languages/typescript.md#op-businessProfit",
+      "python": "docs/languages/python.md#op-businessProfit",
+      "php": "docs/languages/php.md#op-businessProfit",
+      "go": "docs/languages/go.md#op-businessProfit",
+      "java": "docs/languages/java.md#op-businessProfit",
+      "csharp": "docs/languages/csharp.md#op-businessProfit",
+      "ruby": "docs/languages/ruby.md#op-businessProfit",
+      "rust": "docs/languages/rust.md#op-businessProfit",
+      "kotlin": "docs/languages/kotlin.md#op-businessProfit",
+      "swift": "docs/languages/swift.md#op-businessProfit",
+      "dart": "docs/languages/dart.md#op-businessProfit"
+    }
+  },
+  {
+    "operationId": "businessProfitMargin",
+    "method": "POST",
+    "path": "/api/v1/business/profit-margin",
+    "summary": "Profit margin (percent)",
+    "description": "Returns `(revenue − costs) / revenue × 100` as percent points (`40` means 40%). `revenue = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "revenue": 1000,
+      "costs": 600
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "profit-margin",
+        "result": 40
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "revenue": {
+          "type": "number"
+        },
+        "costs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "revenue",
+        "costs"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-profit-margin.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessProfitMargin",
+      "javascript": "docs/languages/javascript.md#op-businessProfitMargin",
+      "typescript": "docs/languages/typescript.md#op-businessProfitMargin",
+      "python": "docs/languages/python.md#op-businessProfitMargin",
+      "php": "docs/languages/php.md#op-businessProfitMargin",
+      "go": "docs/languages/go.md#op-businessProfitMargin",
+      "java": "docs/languages/java.md#op-businessProfitMargin",
+      "csharp": "docs/languages/csharp.md#op-businessProfitMargin",
+      "ruby": "docs/languages/ruby.md#op-businessProfitMargin",
+      "rust": "docs/languages/rust.md#op-businessProfitMargin",
+      "kotlin": "docs/languages/kotlin.md#op-businessProfitMargin",
+      "swift": "docs/languages/swift.md#op-businessProfitMargin",
+      "dart": "docs/languages/dart.md#op-businessProfitMargin"
+    }
+  },
+  {
+    "operationId": "businessRetentionRate",
+    "method": "POST",
+    "path": "/api/v1/business/retention-rate",
+    "summary": "Retention rate (percent)",
+    "description": "Returns `retained / starting × 100` as percent points. Counts are non-negative. `starting = 0` yields `DIVISION_BY_ZERO` (HTTP 422).",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "retained": 900,
+      "starting": 1000
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "retention-rate",
+        "result": 90
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "retained": {
+          "type": "number",
+          "minimum": 0
+        },
+        "starting": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "retained",
+        "starting"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-retention-rate.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessRetentionRate",
+      "javascript": "docs/languages/javascript.md#op-businessRetentionRate",
+      "typescript": "docs/languages/typescript.md#op-businessRetentionRate",
+      "python": "docs/languages/python.md#op-businessRetentionRate",
+      "php": "docs/languages/php.md#op-businessRetentionRate",
+      "go": "docs/languages/go.md#op-businessRetentionRate",
+      "java": "docs/languages/java.md#op-businessRetentionRate",
+      "csharp": "docs/languages/csharp.md#op-businessRetentionRate",
+      "ruby": "docs/languages/ruby.md#op-businessRetentionRate",
+      "rust": "docs/languages/rust.md#op-businessRetentionRate",
+      "kotlin": "docs/languages/kotlin.md#op-businessRetentionRate",
+      "swift": "docs/languages/swift.md#op-businessRetentionRate",
+      "dart": "docs/languages/dart.md#op-businessRetentionRate"
+    }
+  },
+  {
+    "operationId": "businessRoas",
+    "method": "POST",
+    "path": "/api/v1/business/roas",
+    "summary": "Return on ad spend ROAS (ratio)",
+    "description": "Returns `revenue / adSpend` as a plain ratio (`4` means 4×). `adSpend = 0` yields `DIVISION_BY_ZERO` (HTTP 422). Unlike ROI, this is not multiplied by 100.",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "revenue": 4000,
+      "adSpend": 1000
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "roas",
+        "result": 4
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "revenue": {
+          "type": "number"
+        },
+        "adSpend": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "revenue",
+        "adSpend"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-roas.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessRoas",
+      "javascript": "docs/languages/javascript.md#op-businessRoas",
+      "typescript": "docs/languages/typescript.md#op-businessRoas",
+      "python": "docs/languages/python.md#op-businessRoas",
+      "php": "docs/languages/php.md#op-businessRoas",
+      "go": "docs/languages/go.md#op-businessRoas",
+      "java": "docs/languages/java.md#op-businessRoas",
+      "csharp": "docs/languages/csharp.md#op-businessRoas",
+      "ruby": "docs/languages/ruby.md#op-businessRoas",
+      "rust": "docs/languages/rust.md#op-businessRoas",
+      "kotlin": "docs/languages/kotlin.md#op-businessRoas",
+      "swift": "docs/languages/swift.md#op-businessRoas",
+      "dart": "docs/languages/dart.md#op-businessRoas"
+    }
+  },
+  {
+    "operationId": "businessRoi",
+    "method": "POST",
+    "path": "/api/v1/business/roi",
+    "summary": "Return on investment ROI (percent)",
+    "description": "Returns `profit / investment × 100` as percent points, where `profit` is the net gain. `investment = 0` yields `DIVISION_BY_ZERO` (HTTP 422). Distinct from ROAS, which is a revenue ratio.",
+    "tag": "Business Analytics",
+    "authentication": "api-key",
+    "requestExample": {
+      "profit": 250,
+      "investment": 1000
+    },
+    "responseExample": {
+      "success": true,
+      "data": {
+        "operation": "roi",
+        "result": 25
+      },
+      "meta": {
+        "requestId": "3f1c2b7a-9d4e-4f6a-8b2c-1a2b3c4d5e6f",
+        "timestamp": "2026-01-15T12:00:00.000Z"
+      }
+    },
+    "requestSchema": {
+      "type": "object",
+      "properties": {
+        "profit": {
+          "type": "number"
+        },
+        "investment": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "profit",
+        "investment"
+      ],
+      "additionalProperties": false
+    },
+    "reference": "docs/endpoints/business-roi.md",
+    "languages": {
+      "curl": "docs/languages/curl.md#op-businessRoi",
+      "javascript": "docs/languages/javascript.md#op-businessRoi",
+      "typescript": "docs/languages/typescript.md#op-businessRoi",
+      "python": "docs/languages/python.md#op-businessRoi",
+      "php": "docs/languages/php.md#op-businessRoi",
+      "go": "docs/languages/go.md#op-businessRoi",
+      "java": "docs/languages/java.md#op-businessRoi",
+      "csharp": "docs/languages/csharp.md#op-businessRoi",
+      "ruby": "docs/languages/ruby.md#op-businessRoi",
+      "rust": "docs/languages/rust.md#op-businessRoi",
+      "kotlin": "docs/languages/kotlin.md#op-businessRoi",
+      "swift": "docs/languages/swift.md#op-businessRoi",
+      "dart": "docs/languages/dart.md#op-businessRoi"
+    }
+  }
+]
